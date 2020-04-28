@@ -1,0 +1,35 @@
+#!/bin/sh
+set -x
+set -u
+set -e
+
+
+
+
+mypath=`realpath $0`
+
+export scriptdir=`dirname $mypath` 
+export COSMO_PATH=${scriptdir}/COSMO-meteo
+
+export METEO_DIR=${COSMO_PATH}
+#export silam_binary=${scriptdir}/silam-model/bin/silam_v5_6.gnumpi # MPI run
+export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu    # serial run
+export silam_binary=/home/kouzne/SILAM/silamgit/bin/silam_v5_7.gnu
+
+#export boundary_path="/media/disk-6T/BoundariesFMI"
+#export OMP_NUM_THREADS=8
+
+export OUTPUTDIR=${scriptdir}/output
+
+export outsuff="" ## Can be set non-empty to alter the  output directory
+
+export fcdate=`date -u -d "3 hours" +%Y%m%d`
+
+export maxhours=48
+
+export email="test-kaz"
+
+
+set +u
+set +e
+set +x
