@@ -13,7 +13,7 @@ basedate=`date -u -d "$basedate" +%Y%m%d`
 set -u 
 ncks=ncks
 
-BND_PATH=SILAM-bnd
+BND_PATH=$BOUNDARY_DIR
 
 targetdir=$BND_PATH/`date -u -d "$basedate" +%Y%m%d00`
 mkdir -p $targetdir
