@@ -13,7 +13,7 @@ basedate=`date -u -d "$basedate" +%Y%m%d`
 set -u 
 ncks=ncks
 
-BND_PATH=$BOUNDARY_DIR
+BND_PATH=${BOUNDARY_DIR}dap
 
 targetdir=$BND_PATH/`date -u -d "$basedate" +%Y%m%d00`
 mkdir -p $targetdir
@@ -25,7 +25,8 @@ cd $targetdir
 #exit 1
 
 runpref="silam_glob_v5_6_RUN_"
-urlbase="http://silam.fmi.fi/thredds/ncss/silam_glob_v5_6/runs/$runpref"
+urlbaseNCSS="http://silam.fmi.fi/thredds/ncss/silam_glob_v5_6/runs/$runpref"
+urlbase="http://silam.fmi.fi/thredds/dodsC/silam_glob_v5_6/runs/$runpref"
 
 species="AVB0_gas AVB0_m_50 BVB0_gas BVB0_m_50 C2O3_gas C5H8_2_gas
 C5H8_gas CO_gas EC_m_50 ETH_gas H2O2_gas HCHO_gas
@@ -34,7 +35,7 @@ O_gas PAN_gas PAR_gas PM10 PM2_5 PM_FRP PM_FRP_m_17 PM_m6_0 PNA_gas ROR_gas
 SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas 
 dust_m1_5 dust_m20 dust_m6_0 dust_m_30 mineral_m_50 sslt sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50"
 
-varlist="air_dens"
+varlist="a,b,da,db,a_half,b_half,O3_column,NO2_column,air_dens"
 
 for sp in $species; do
     varlist="$varlist,cnc_${sp}"
@@ -48,10 +49,11 @@ echo $varlist
 
 
 # Kazakh domain
-bbox="spatial=bb&north=61&west=44&east=90&south=35"
+# bbox="spatial=bb&north=61&west=44&east=90&south=35"
+bbox="-d lon,44.,90. -d lat,35.,61. -d hybrid,0,18 -d hybrid_half,0,19"
 
 
-maxjobs=4
+maxjobs=16
 
 # make dates
 run=`date -u -d $basedate +"%FT00:00:00Z"`
@@ -60,23 +62,29 @@ run=`date -u -d $basedate +"%FT00:00:00Z"`
 
 for try  in `seq 0 10`; do
    missfiles=""
-   for hr in `seq 48 167` ; do
+   for hr in `seq 48 3 168` ; do
    #for hr in `seq 48 52` ; do
-        time=`date -u -d"$basedate + $hr hours" +"%FT%H:00:00Z"`
         outf=`date -u -d"$basedate + $hr hours" +"SILAM4DE${run}_%Y%m%d%H.nc"`
+
         [ -f $outf ] && continue
+        step=`expr $hr - 1`
          missfiles="$missfiles $outf"
 
 
-        URL="$urlbase$run?var=$varlist&$bbox&temporal=range&time_start=$time&time_end=$time&accept=netcdf&email=$email"
-#        echo wget \"$URL\"
+        URL="$urlbase$run"
+        ## The command that fails, but leaves trace in threds logs, so I could grep your request from there
+        wget -q "$URL?ncksparams=\"$bbox -d time,$hr -v ${varlist}\"&email=$email" -O /dev/null 2>&1>/dev/null || true
 #        exit
         #
         # For some reason thredds does not supply _CoordinateModelRunDate anymore
-        attcmd="-a _CoordinateModelRunDate,global,c,c,$run ${outf}.tmp -a history,global,d,,, -a history_of_appended_files,global,d,,,"
-        (wget -q $URL -O ${outf}.tmp && ncatted -h $attcmd && $ncks -h --mk_rec_dmn time ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) &
-        while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
+        attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a history_of_appended_files,global,d,,, -a _ChunkSizes,,d,,,"
+        compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc cnc_.*=2"
 
+        #   get -> fix attribures -> compress
+        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outf}.tmp && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
+        
+        echo  `jobs | wc -l`  $maxjobs 
+        while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
    done
    wait
    [ -z "$missfiles" ] && break
