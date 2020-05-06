@@ -1,14 +1,6 @@
 #!/bin/sh
-set -x
-set -u
-set -e
 
-
-
-
-mypath=`realpath $0`
-
-export scriptdir=`dirname $mypath` 
+export scriptdir=`pwd`
 
 
 export METEO_DIR=${scriptdir}/meteo
@@ -17,7 +9,7 @@ export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 
 
 #export silam_binary=${scriptdir}/silam-model/bin/silam_v5_6.gnumpi # MPI run
-export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu    # serial run
+export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
 #export OMP_NUM_THREADS=8
@@ -31,7 +23,9 @@ export maxhours=48
 
 export email="test-kaz"
 
-
-set +u
-set +e
-set +x
+export publish=true
+# Geometry depends on the picture Upper-leftcorner of logo with respect
+# to upper-left corner of a picture 
+export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
+# Special logo for aqi and pollen index pictures
+export PUTLOGOCMDINDEX="$PUTLOGOCMD"
