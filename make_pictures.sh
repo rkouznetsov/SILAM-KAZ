@@ -91,15 +91,16 @@ if $publish; then
     done
 
     #deploy animation if not yet...
+    rsync -av $scriptdir/www/*.html .
     if [ !  -d Napit ]; then
      tar -xvf  $scriptdir/www/Napit.tar
-     rsync -av $scriptdir/www/*.html .
     fi
 
     popd
-#    echo Syncing $outputdir/webloads/$fctype to $fmi_data_path
+    fmi_data_path=eslogin:/fmi/data/silam.fmi.fi/partners/KAZ
+    echo Syncing $outputdir/webloads to $fmi_data_path
 #    mkdir -p $fmi_data_path
-#    $rsync -a --delete  $outputdir/webloads/$fctype $fmi_data_path
+    $rsync -a --delete  $outputdir/webloads/* $fmi_data_path/
 fi
 exit 0
 
