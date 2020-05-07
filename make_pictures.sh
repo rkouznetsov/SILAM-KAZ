@@ -84,7 +84,7 @@ if $publish; then
     ii=0
     for d in `find . -type d -name '20??????'|sort -r`; do
        linkname=`printf  %03d $ii`
-       rm $linkname
+       rm -f $linkname
        echo ln -s  $d $linkname
        ln -sf  $d $linkname
        ii=`expr $ii + 1`  
@@ -92,7 +92,7 @@ if $publish; then
 
     #deploy animation if not yet...
     if [ !  -d Napit ]; then
-     tar -cvf  $scriptdir/www/Napit.tar
+     tar -xvf  $scriptdir/www/Napit.tar
      rsync -av $scriptdir/www/*.html .
     fi
 
