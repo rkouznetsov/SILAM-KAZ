@@ -79,9 +79,6 @@ function showgif(idx,over) {
   }
 }
 
-function scroll() {
-  showgif( (oldidx+1) % n , 0 );
-}
 
 function doanim() {
   if(!isanim) return;
@@ -135,13 +132,9 @@ function mkanimbody()
 
   document.writeln('<TABLE BORDER=0 ALIGN="CENTER">');
   document.writeln('<TR ALIGN="CENTER" VALIGN="TOP">');
-  document.writeln('<TD><IMG BORDER=1 NAME="ennuste" SRC="'+preimages[0].src+'"></TD>');
+  document.writeln('<TD><DIV id="MainMap">  <IMG BORDER=1 NAME="ennuste" SRC="'+preimages[0].src+'"></DIV></TD>');
   document.writeln('</TR>');
   document.writeln('</TABLE>');
-
-
-
-
   document.writeln('</TD></TR>');
   document.writeln('</TABLE>');
 
@@ -198,26 +191,24 @@ preload();      // Must be after the SSI
 
 </HEAD>
 
-<!--<BODY BGCOLOR=white onLoad="restart()">
-<CENTER>
-<P><FONT COLOR=blue>Parameter:   <P id="a"> </P> 
-<script language="javascript">
-    var a = argument;
-    document.getElementById("a").innerHTML=a; 
-</script>
-</FONT> 
-</P>
-<!-- by MK 9/2004
-<A HREF="00_O3.html"><FONT COLOR="blue">Printable page 00Z O3</FONT></A>
-</CENTER>
--->
 <BODY BGCOLOR=white onLoad="restart()">
 <CENTER>
 <BODY LINK=white VLINK=white ALINK=white>
 
 <SCRIPT LANGUAGE="JavaScript"><!--
 mkanimbody();
-// -->
+document.getElementById("MainMap").addEventListener("wheel", function scroll(event) 
+{
+  isanim = false;
+  if (event.deltaY > 0) {
+ //   console.log('scrolling down');
+    showgif( (oldidx+1) % n , 0 );
+  }else if (event.deltaY < 0){
+//    console.log('scrolling up');
+    showgif( (oldidx + n -1) % n , 0 );
+  }
+}
+);
 </SCRIPT>
 
 
