@@ -7,7 +7,7 @@ set -u
 start_time=`date -u -d "$fcdate 00:00:00 UTC" +"%Y %m %d %H 00 0."`
 export  start_time
 
-CONTROL=KAZ-cb5.control
+CONTROL=AQ-cb5.control
 
 #CONTROL=KAZ-cb5-nobnd-grads.control
 #outsuff="nobnd-grads" 

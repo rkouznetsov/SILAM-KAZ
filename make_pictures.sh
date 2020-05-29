@@ -33,7 +33,6 @@ analysis_time=${fcdate}_00 ##${fchour}
 cd $gradsscriptdir
 pwd
 
-mpdset="mpd_kaz"
 
 dates=""
 for h in `seq 0 $maxhours`; do ## Plot 0-th hour
@@ -97,7 +96,7 @@ if $publish; then
     fi
 
     popd
-    fmi_data_path=eslogin:/fmi/data/silam.fmi.fi/partners/KAZ
+    fmi_data_path=eslogin:/fmi/data/silam.fmi.fi/partners/${suitename}
     echo Syncing $outputdir/webloads to $fmi_data_path
 #    mkdir -p $fmi_data_path
     $rsync -a --delete  $outputdir/webloads/* $fmi_data_path/

@@ -2,7 +2,7 @@
 CONTROL_V5_3
 
 LIST = GENERAL_PARAMETERS
-  case_name = KAZ-AQ
+  case_name = ${suitename}
   direction_in_time = FORWARD
   simulation_type = EULERIAN
   start_time = ${start_time}
@@ -53,25 +53,25 @@ LIST = EMISSION_PARAMETERS
 #   emission_source = EULERIAN emis/IS4FIRES_v2_0/src_fire_excl_ff6yrs_2019-cb5.fs1
 
 
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/ALD2-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/ALDX-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/BENZENE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/CH3Cl-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/CO-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/EC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/ETHA-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/ETH-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/ETOH-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/HCHO-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/IOLE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/NH3-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/NOX-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/OC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/OLE5-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/PAR5-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/SO2-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/TOLUENE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_Kaz_CB5v2_as_2017/XYLENE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ALD2-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ALDX-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/BENZENE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/CH3Cl-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/CO-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/EC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETHA-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETH-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETOH-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/HCHO-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/IOLE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/NH3-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/NOX-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/OC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/OLE5-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/PAR5-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/SO2-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/TOLUENE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/XYLENE-CAMS-GLOB-ANT-as2017.sa2.hdr
 
 ## These guys are missing from CAMS_GLOB
   emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
@@ -114,7 +114,7 @@ LIST = TRANSFORMATION_PARAMETERS
   photolysis_affected_by_o3col = YES
   photolysis_affected_by_aod = YES
   photolysis_AOD_wavelength = 550 nm
-  cloud_model_for_photolysis = SIMPLE_CLOUD
+  cloud_model_for_photolysis = DETAILED_CLOUD
   cbm_tolerance = FAST
 END_LIST = TRANSFORMATION_PARAMETERS
 
@@ -122,7 +122,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 # From bopundaries
 #  initialize_quantity = concentration
-#  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564KAZ%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
+#  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
   #
 # From yesterdays' run
   initialize_quantity = concentration
@@ -186,10 +186,10 @@ LIST = OUTPUT_PARAMETERS
   wind_component = 0
   reduced_nbr_str = 0
 
-   lon_start = 45.1
-   lat_start = 35.1
-   lon_end = 89.9
-   lat_end = 57.9
+   lon_start = 67.1
+   lat_start = 6.1
+   lon_end = 98.9
+   lat_end = 37.9
    dx = 0.2
    dy = 0.2
 
@@ -216,7 +216,7 @@ LIST = STANDARD_SETUP
   horizontal_interpolation = LINEAR
   vertical_interpolation = LINEAR
   time_interpolation = LINEAR
-  standard_setup_directory = ${silam_ini}/
+  standard_setup_directory = ini/
   nuclide_database_fnm = ^silam_nuclides.dat
   chemical_database_fnm = ^silam_chemicals_95_OC.dat
   standard_cocktail_fnm = ^standard_aerosols_cocktails.ini
@@ -227,8 +227,7 @@ LIST = STANDARD_SETUP
   grib_code_table_fnm = ^grib_code_table_v5.silam
   netcdf_name_table_fnm = ^netcdf_name_table.silam
   timezone_list_fnm = ^tzindex_added_country_codes.dat
-  photolysis_data_file = ^photolysis_finrose_84React_for5_7.dat #FIXME
-  #photolysis_data_file = ^photolysis_finrose.dat
+  photolysis_data_file = ^photolysis_finrose_84React_for5_7.dat
   land_use_data_meta_file = ^land_use_features_USGS_Eurasia.dat
   optical_properties_meta_data_file = ^optical_properties.dat
   allow_zero_forecast_length = NO

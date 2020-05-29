@@ -56,7 +56,7 @@ echo $varlist
 
 # Kazakh domain
 # bbox="spatial=bb&north=61&west=44&east=90&south=35"
-bbox="-d lon,44.,90. -d lat,35.,61. -d hybrid,0,18 -d hybrid_half,0,19"
+bbox="-d lon,${lonrange} -d lat,${latrange} -d hybrid,0,18 -d hybrid_half,0,19"
 
 
 maxjobs=16
@@ -70,7 +70,7 @@ for try  in `seq 0 10`; do
    missfiles=""
    for hr in `seq 48 3 168` ; do
    #for hr in `seq 48 52` ; do
-        outf=`date -u -d"$basedate + $hr hours" +"SILAM564KAZ${run}_%Y%m%d%H.nc"`
+        outf=`date -u -d"$basedate + $hr hours" +"SILAM564${suitename}${run}_%Y%m%d%H.nc"`
 
         [ -f $outf ] && continue
         step=`expr $hr - 1`

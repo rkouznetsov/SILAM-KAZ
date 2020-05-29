@@ -30,7 +30,7 @@ esac
 
 outdir=meteo
 
-tmpdir=/dev/shm/KAZ-meteo
+tmpdir=/dev/shm/${suitename}-meteo
 
 mkdir -p $tmpdir
 
@@ -54,15 +54,15 @@ for hh in `seq 0 3 $((${maxhours}+24))`; do
 	   [ -e $tmpf ]  || $getfileherepref/$filebase $tmpdir/
 		
 	   grib_copy -w typeOfLevel=surface $tmpf $tmpf-surface.tmp
-	   cdo sellonlatbox,44.,90.,35.,61.  $tmpf-surface.tmp  $tmpf-surfacecut.tmp
+	   cdo sellonlatbox,${bbox}  $tmpf-surface.tmp  $tmpf-surfacecut.tmp
 	   cutlist="$tmpf-surfacecut.tmp"
 	   rmlist="$tmpf-surface.tmp  $tmpf-surfacecut.tmp"
 	   if [ $hh -gt 0 ]; then
 		   grib_copy -w typeOfLevel=hybrid $tmpf $tmpf-hybrid.tmp
 		   grib_copy -w typeOfLevel=depthBelowLandLayer $tmpf $tmpf-soil.tmp
-		   cdo ${cdoaec} sellonlatbox,44.,90.,35.,61.  $tmpf-hybrid.tmp  $tmpf-hybridcut.tmp
-		   #cdo sellonlatbox,44.,90.,35.,61.  $tmpf-hybrid.tmp  $tmpf-hybridcut.tmp
-		   cdo sellonlatbox,44.,90.,35.,61.  $tmpf-soil.tmp  $tmpf-soilcut.tmp
+		   cdo ${cdoaec} sellonlatbox,${bbox}  $tmpf-hybrid.tmp  $tmpf-hybridcut.tmp
+		   #cdo sellonlatbox,${bbox}  $tmpf-hybrid.tmp  $tmpf-hybridcut.tmp
+		   cdo sellonlatbox,${bbox}  $tmpf-soil.tmp  $tmpf-soilcut.tmp
 		   cutlist="$cutlist $tmpf-hybridcut.tmp  $tmpf-soilcut.tmp"
 		   rmlist="$rmlist  $tmpf-hybrid.tmp  $tmpf-hybridcut.tmp $tmpf-soil.tmp  $tmpf-soilcut.tmp"
 	   fi 
@@ -85,7 +85,7 @@ filebase=ecglob100_VEG_${antime}00+00.sfc
  if [ ! -f $outf ]; then
    [ -e $tmpf ]  || $getfileherepref/$filebase $tmpdir/
 #   rsync -av $file $tmpdir/
-   cdo sellonlatbox,44.,90.,35.,61.  $tmpf ${outf}.tmp
+   cdo sellonlatbox,${bbox}  $tmpf ${outf}.tmp
    mv ${outf}.tmp $outf
    ls -l $tmpf $outf
    rm $tmpf
