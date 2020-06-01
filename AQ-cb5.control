@@ -7,7 +7,7 @@ LIST = GENERAL_PARAMETERS
   simulation_type = EULERIAN
   start_time = ${start_time}
   computed_period = ${maxhours} hr
-  time_step = 10 min
+  time_step = 30 min
   cut_area_source_if_outside_meteo_grid = YES
   computation_accuracy = 5
 END_LIST = GENERAL_PARAMETERS
@@ -26,20 +26,24 @@ LIST = DISPERSION_PARAMETERS
 END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
-  dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file = GRIB  meteo/ecglob100_VEG_%ay4%am2%ad2%ah2+00.sfc
+ dynamic_meteo_file  = NETCDF:WRF_OUTPUT WRF/%ay4%am2%ad2%ah2/wrfout_d01_%y4-%m2-%d2_%h2:00:00.nc 
+ static_meteo_file  = NETCDF:WRF_OUTPUT WRF/%ay4%am2%ad2%ah2/wrfout_d01_%ay4-%am2-%ad2_%ah2:00:00.nc 
+  static_meteo_file = NETCDF:TZ_index EC_OPER/tz_index_02deg.nc4 
 
-  static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
+#  dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
+#  static_meteo_file = GRIB  meteo/ecglob100_VEG_%ay4%am2%ad2%ah2+00.sfc
+
+#  static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
 
   static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
-  static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
-  meteo_time_step = 3 hr
+#  static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
+  meteo_time_step = 1 hr
   if_wait_for_data = NO
   abl_parameterization_method = FULL_PARAM
   number_of_precipitation_fields = 2
   max_hole_in_meteo_data = 0 hr
-#  use_lai = DYNAMIC2
-  use_lai = STATIC2
+  use_lai = DYNAMIC1
+#  use_lai = STATIC2
 END_LIST = METEO_PARAMETERS
 
 LIST = EMISSION_PARAMETERS
@@ -94,7 +98,8 @@ LIST = TRANSFORMATION_PARAMETERS
   dry_deposition_scheme = KS2011_TF
   surface_resistance_method = WES2013
   wet_deposition_scheme = 2018_SCAVENGING
-  max_scav_rate_depends_on = CAPE
+  max_scav_rate_depends_on = HORIZONTAL_WIND # FIXME 
+#  max_scav_rate_depends_on = CAPE
   use_dynamic_albedo = YES
   if_actual_humidity_for_particle_size = YES
   default_relative_humidity = 0.8
@@ -114,22 +119,23 @@ LIST = TRANSFORMATION_PARAMETERS
   photolysis_affected_by_o3col = YES
   photolysis_affected_by_aod = YES
   photolysis_AOD_wavelength = 550 nm
-  cloud_model_for_photolysis = DETAILED_CLOUD
+  #cloud_model_for_photolysis = DETAILED_CLOUD
+  cloud_model_for_photolysis = SIMPLE_CLOUD
   cbm_tolerance = FAST
 END_LIST = TRANSFORMATION_PARAMETERS
 
 LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 # From bopundaries
-#  initialize_quantity = concentration
-#  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
+  initialize_quantity = concentration
+  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
   #
 # From yesterdays' run
-  initialize_quantity = concentration
-  initialize_quantity = advection_moment_x
-  initialize_quantity = advection_moment_y
-  initialize_quantity = advection_moment_z
-  initialization_file = GRADS    ${OUTPUT_DIR}/%ay4%am2%ad2/%y4%m2%d2%h2_%y4_%m2_%d2_%h2.00.0.0_dump.grads.super_ctl
+#  initialize_quantity = concentration
+#  initialize_quantity = advection_moment_x
+#  initialize_quantity = advection_moment_y
+#  initialize_quantity = advection_moment_z
+#  initialization_file = GRADS    ${OUTPUT_DIR}/%ay4%am2%ad2/%y4%m2%d2%h2_%y4_%m2_%d2_%h2.00.0.0_dump.grads.super_ctl
 
 #
 
@@ -216,7 +222,7 @@ LIST = STANDARD_SETUP
   horizontal_interpolation = LINEAR
   vertical_interpolation = LINEAR
   time_interpolation = LINEAR
-  standard_setup_directory = ini/
+  standard_setup_directory = ${silam_ini}
   nuclide_database_fnm = ^silam_nuclides.dat
   chemical_database_fnm = ^silam_chemicals_95_OC.dat
   standard_cocktail_fnm = ^standard_aerosols_cocktails.ini
