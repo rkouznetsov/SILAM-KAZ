@@ -65,7 +65,7 @@ maxjobs=16
 run=`date -u -d $basedate +"%FT00:00:00Z"`
 
 
-
+date
 for try  in `seq 0 10`; do
    missfiles=""
    for hr in `seq 48 3 168` ; do
@@ -95,7 +95,7 @@ for try  in `seq 0 10`; do
    wait
    [ -z "$missfiles" ] && break
 done
-
+date
 
 if [ -z "$missfiles" ]; then
   echo "Finished okay after $try attempts"

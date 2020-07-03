@@ -26,10 +26,12 @@ LIST = DISPERSION_PARAMETERS
 END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
-  dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file = GRIB  meteo/ecglob100_VEG_%ay4%am2%ad2%ah2+00.sfc
 
-  static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
+   dynamic_meteo_file = NETCDF:WRF_OUTPUT WRF/%ay4%am2%ad2%ah2/wrfout_d01_%y4%m2%d2%h2.f%f3
+					#WRF/2020070112/wrfout_d01_2020070113.f001
+   static_meteo_file = NETCDF:WRF_OUTPUT WRF/%ay4%am2%ad2%ah2/wrfout_d01_%ay4%am2%ad2%ah2.f000
+
+
 
   static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
   static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
@@ -38,8 +40,8 @@ LIST = METEO_PARAMETERS
   abl_parameterization_method = FULL_PARAM
   number_of_precipitation_fields = 2
   max_hole_in_meteo_data = 0 hr
-#  use_lai = DYNAMIC2
-  use_lai = STATIC2
+  use_lai = STATIC1
+#  use_lai = STATIC2
 END_LIST = METEO_PARAMETERS
 
 LIST = EMISSION_PARAMETERS
@@ -94,7 +96,7 @@ LIST = TRANSFORMATION_PARAMETERS
   dry_deposition_scheme = KS2011_TF
   surface_resistance_method = WES2013
   wet_deposition_scheme = 2018_SCAVENGING
-  max_scav_rate_depends_on = CAPE
+  max_scav_rate_depends_on = HORIZONTAL_WIND #FIXME CAPE should be in meteo
   use_dynamic_albedo = YES
   if_actual_humidity_for_particle_size = YES
   default_relative_humidity = 0.8
@@ -227,8 +229,8 @@ LIST = STANDARD_SETUP
   grib_code_table_fnm = ^grib_code_table_v5.silam
   netcdf_name_table_fnm = ^netcdf_name_table.silam
   timezone_list_fnm = ^tzindex_added_country_codes.dat
-  photolysis_data_file = ^photolysis_finrose_84React_for5_7.dat #FIXME
-  #photolysis_data_file = ^photolysis_finrose.dat
+  photolysis_data_file = ^photolysis_finrose_84React_for5_7.dat
+  #photolysis_data_file = ^photolysis_finrose.dat #
   land_use_data_meta_file = ^land_use_features_USGS_Eurasia.dat
   optical_properties_meta_data_file = ^optical_properties.dat
   allow_zero_forecast_length = NO
