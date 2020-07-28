@@ -19,7 +19,7 @@ apta_script=$gradsscriptdir/main_process_AQ.gs
 ### WARNING system $grads environment to be used
 grads="grads"
 ## grads=true # uncomment to disable grads calls
-rsync="/usr/bin/rsync -v"
+rsync="true" #/usr/bin/rsync -v"
 
 
 outputdir=${OUTPUT_DIR}

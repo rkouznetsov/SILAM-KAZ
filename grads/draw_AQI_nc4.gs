@@ -156,7 +156,7 @@ timeSize = subwrd(sizeLine,12)
       'set rbcols 30 31 32 33 34'
 
       'd AQI'
-      'draw title AQI'
+      'draw title AQI, 'hhmm''dd
       'ccbar Good Fair Moderate Poor VeryPoor'
 
       'set vpage 0.25 8.25 0 5.5'
