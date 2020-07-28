@@ -31,7 +31,7 @@ substNm = "O3_gas"
 factor = "48e6"
 massUnit = "ugO3"
 scale_legend = "20.0 lin 0"
-colour = 'def_lowgrey' 
+colour = 'def_lowwhite' 
 'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
 
 substNm = "BLH"

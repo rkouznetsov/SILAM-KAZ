@@ -386,6 +386,7 @@ if(ifContinue = 1)
          'd (cnc_'substNm '(z='ind_down.iLev')*'weight_down.iLev' + cnc_'substNm '(z='ind_up.iLev')*'weight_up.iLev') * ' factor
          'cbarn'
          'draw title Concentration, 'massUnit'/m3, 'hhmm''dd
+         'run labels.gs'
 
          if(iLev = 1)
 *
@@ -398,6 +399,7 @@ if(ifContinue = 1)
              'd dd_'substNm ' * 10 *' factor
              'cbarn'
              'draw title Dry dep. 0.1 'massUnit'/m2sec, 'hhmm''dd
+             'run labels.gs'
              IF3PANEL = TRUE
            endif
 *
@@ -408,6 +410,7 @@ if(ifContinue = 1)
              'set clevs 0.01 0.02 0.05 0.1 0.2 0.5 1 2 5'
              'set grads off'
              'd wd_'substNm ' * ' factor
+             'run labels.gs'
              'cbarn'
              'draw title Wet dep. 'massUnit'/m2sec, 'hhmm''dd
               IF3PANEL = TRUE
@@ -424,6 +427,7 @@ if(ifContinue = 1)
 
       else
          'd 'gradsvar'*'factor
+         'run labels.gs'
          'cbarn'
          'draw title 'substNm_out', 'massUnit', 'hhmm''dd
 

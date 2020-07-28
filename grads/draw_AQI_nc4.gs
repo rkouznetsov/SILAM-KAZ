@@ -157,6 +157,7 @@ timeSize = subwrd(sizeLine,12)
 
       'd AQI'
       'draw title AQI'
+      'run labels.gs'
       'ccbar Good Fair Moderate Poor VeryPoor'
 
       'set vpage 0.25 8.25 0 5.5'
@@ -167,6 +168,7 @@ timeSize = subwrd(sizeLine,12)
   'set rbcols 40 41  3  4  12'
 
   'd AQISRC'
+  'run labels.gs'
   'draw title Component responsible for poor AQI'
 
   'ccbar PM2.5 PM10 NO2 O3 SO2'
@@ -180,7 +182,7 @@ timeSize = subwrd(sizeLine,12)
 
      'printim 'outfname'.png x800 y1000 white'
       say 'Making' outfname
-
+    
       'clear'
 
 
