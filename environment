@@ -23,9 +23,10 @@ export maxhours=48
 
 export email="usmanovt@gmail.com"
 
-export publish=false # Could be enabled once the desitnation location defined in make_pictures.sh
+export publish=true 
 # Geometry depends on the picture Upper-leftcorner of logo with respect
 # to upper-left corner of a picture 
-export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
+# export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
+export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/kgm.png"
 # Special logo for aqi and pollen index pictures
 export PUTLOGOCMDINDEX="$PUTLOGOCMD"
