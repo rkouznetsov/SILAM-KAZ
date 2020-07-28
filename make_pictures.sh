@@ -50,7 +50,6 @@ for d in $dates; do
   echo "\"run $apta_script $analysis_time    ${binary}  $picture_dir $ioff $mpdset\"" 
   ioff=`expr $ioff + 1`
 done | xargs -t -l -P $nproc $grads -bpc
-
 # put logo if corresponding command is provided
 #cd $scriptdir/delme || exit 234
 if [  -z ${PUTLOGOCMD+x}  ]; then
