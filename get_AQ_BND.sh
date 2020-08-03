@@ -79,7 +79,7 @@ for try  in `seq 0 10`; do
         outftry=${outf}_try${try}
 
         URL="$urlbase$run"
-        ## The command that fails, but leaves trace in threds logs, so I could grep your request from there
+        ## The command that fails, but leaves trace in tredds logs, so I could grep your request from there
         wget -q "$URL?ncksparams=\"$bbox -d time,$hr -v ${varlist}\"&email=$email" -O /dev/null 2>&1>/dev/null || true
 #        exit
         #
@@ -110,8 +110,8 @@ for try  in `seq 0 10`; do
         goodfile=`echo "$list " | grep "   2" |awk '{print $3}'`
         echo Goodfile $goodfile
         mv $goodfile $f
-        rm ${f}_try*  
-        rm ${f}*.ncks.tmp  
+        rm -f ${f}_try*  
+        rm -f ${f}*.ncks.tmp  
       fi
    done
 done
