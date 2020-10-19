@@ -22,6 +22,9 @@ export fcdate=`date -u -d "3 hours" +%Y%m%d`
 export maxhours=48
 
 export email="test-kaz"
+export lonrange="44.,90."
+export latrange="35.,61."
+export suitename="KAZ"
 
 export publish=true
 # Geometry depends on the picture Upper-leftcorner of logo with respect

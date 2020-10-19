@@ -111,7 +111,7 @@ LIST = TRANSFORMATION_PARAMETERS
   if_full_acid_chemistry = YES
   make_coarse_no3 = sslt   0.03
   methylchloroform_OH_rate_factor = 1.0
-  photolysis_affected_by_o3col = YES
+  photolysis_affected_by_o3col = NO
   photolysis_affected_by_aod = YES
   photolysis_AOD_wavelength = 550 nm
   cloud_model_for_photolysis = SIMPLE_CLOUD
@@ -138,7 +138,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
   if_top_boundary = YES
   if_bottom_boundary = NO
   boundary_time_step = 3 hr
-  boundary_header_filename = boundary_CB5_globalCB4.ini
+  boundary_header_filename = boundary_CB5.ini
 END_LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 LIST = OPTICAL_DENSITY_PARAMETERS
