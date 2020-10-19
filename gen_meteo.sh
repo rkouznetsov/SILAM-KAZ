@@ -17,7 +17,7 @@ case `hostname` in
 	cdoaec="-z aec"
      ;;
      voima*|teho*|eslogin*)
-	. environment
+#	. environment
      	getfileherepref="ln -s ${metdatdir}"
 	cdoaec=""
      ;;
@@ -30,7 +30,7 @@ esac
 
 outdir=meteo
 
-tmpdir=/dev/shm/${suitename}-meteo
+tmpdir=/dev/shm/${suitename}-${fcdate}-meteo
 
 mkdir -p $tmpdir
 

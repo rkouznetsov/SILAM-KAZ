@@ -1,4 +1,4 @@
-# Test setup for KAZ run
+# Test setup for INDIAN run
 CONTROL_V5_3
 
 LIST = GENERAL_PARAMETERS
@@ -111,7 +111,7 @@ LIST = TRANSFORMATION_PARAMETERS
   if_full_acid_chemistry = YES
   make_coarse_no3 = sslt   0.03
   methylchloroform_OH_rate_factor = 1.0
-  photolysis_affected_by_o3col = YES
+  photolysis_affected_by_o3col = NO
   photolysis_affected_by_aod = YES
   photolysis_AOD_wavelength = 550 nm
   cloud_model_for_photolysis = DETAILED_CLOUD
@@ -123,7 +123,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 # From bopundaries
 #  initialize_quantity = concentration
 #  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
-  #
+
 # From yesterdays' run
   initialize_quantity = concentration
   initialize_quantity = advection_moment_x
@@ -186,10 +186,10 @@ LIST = OUTPUT_PARAMETERS
   wind_component = 0
   reduced_nbr_str = 0
 
-   lon_start = 67.1
-   lat_start = 6.1
-   lon_end = 98.9
-   lat_end = 37.9
+   lon_start = 60.1
+   lat_start = 0.1
+   lon_end = 99.9
+   lat_end = 39.9
    dx = 0.2
    dy = 0.2
 

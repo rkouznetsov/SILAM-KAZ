@@ -6,6 +6,8 @@
 
 # Enjoy!
 
+#FIXME hook
+bash get_AQ_BND571.sh
 
 basedate=${1:-"2 days ago"} 
 basedate=`date -u -d "$basedate" +%Y%m%d`
@@ -25,8 +27,8 @@ cd $targetdir
 #exit 1
 
 runpref="silam_glob_v5_6_RUN_"
-urlbaseNCSS="http://silam.fmi.fi/thredds/ncss/silam_glob_v5_6/runs/$runpref"
-urlbase="http://silam.fmi.fi/thredds/dodsC/silam_glob_v5_6/runs/$runpref"
+urlbaseNCSS="https://silam.fmi.fi/thredds/ncss/silam_glob_v5_6/runs/$runpref"
+urlbase="https://silam.fmi.fi/thredds/dodsC/silam_glob_v5_6/runs/$runpref"
 
 species="AVB0_gas AVB0_m_50 BVB0_gas BVB0_m_50 C2O3_gas C5H8_2_gas
 C5H8_gas CO_gas EC_m_50 ETH_gas H2O2_gas HCHO_gas

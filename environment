@@ -32,8 +32,8 @@ export maxhours=48
 #Suite-specific setup
 export suitename=AQ-IMD
 export email="test-imd"
-export lonrange="65.,100."
-export latrange="5.,40."
+export lonrange="59.,101."
+export latrange="-1.,41."
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
 export mpdset="mpd_ind"
 
