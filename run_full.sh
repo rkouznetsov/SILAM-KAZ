@@ -3,6 +3,7 @@
 
 set -e
 set -u
+set -o pipefail
 
 start_time=`date -u -d "$fcdate 00:00:00 UTC" +"%Y %m %d %H 00 0."`
 export  start_time

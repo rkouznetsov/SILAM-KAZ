@@ -29,6 +29,7 @@ export fcdate=`date -u -d "3 hours" +%Y%m%d`
 
 export maxhours=48
 
+<<<<<<< HEAD
 #Suite-specific setup
 export suitename=AQ-IMD
 export email="test-imd"
@@ -36,6 +37,12 @@ export lonrange="59.,101."
 export latrange="-1.,41."
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
 export mpdset="mpd_ind"
+=======
+export email="test-kaz"
+export lonrange="44.,90."
+export latrange="35.,61."
+export suitename="KAZ"
+>>>>>>> 8fefe4e... Boundaries to CB5 from glob_v5_7_1
 
 export publish=true
 # Geometry depends on the picture Upper-leftcorner of logo with respect
