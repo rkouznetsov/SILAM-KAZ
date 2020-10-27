@@ -85,7 +85,7 @@ filebase=ecglob100_VEG_${antime}00+00.sfc
  if [ ! -f $outf ]; then
    [ -e $tmpf ]  || $getfileherepref/$filebase $tmpdir/
 #   rsync -av $file $tmpdir/
-   cdo sellonlatbox,44.,90.,35.,61.  $tmpf ${outf}.tmp
+   cdo sellonlatbox,44.,90.,34.8,61.  $tmpf ${outf}.tmp
    mv ${outf}.tmp $outf
    ls -l $tmpf $outf
    rm $tmpf
