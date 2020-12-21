@@ -56,10 +56,10 @@ if [  -z ${PUTLOGOCMD+x}  ]; then
    echo PUTLOGOCMD is not set
 else
    echo Putting logos
-   ls ${picture_dir}/*.png |grep -v AQI_ |grep -v POLI_| xargs  -I XXX -P $nproc ${PUTLOGOCMD} XXX XXX  
+   ls ${picture_dir}/*.png |grep -v AQI_ |grep -v POLI_| xargs  -I XXX -P 10 ${PUTLOGOCMD} XXX XXX  
    if [  -n ${PUTLOGOCMDINDEX+x}  ]; then
       #separate logo for AQI
-      ls ${picture_dir}/*[AO][QL]I_???.png | xargs  -I XXX -P $nproc ${PUTLOGOCMDINDEX} XXX XXX  
+      ls ${picture_dir}/*[AO][QL]I_???.png | xargs  -I XXX -P 10 ${PUTLOGOCMDINDEX} XXX XXX  
    fi
    echo compressing pics
    ls ${picture_dir}/*.png  | xargs  -I XXX -P $nproc convert XXX PNG8:XXX
