@@ -77,35 +77,14 @@ for hh in `seq 0 3 $((${maxhours}+24))`; do
 
 done
 
-# Vegetation file
-
-filebase=ecglob100_VEG_${antime}00+00.sfc
- tmpf="$tmpdir/$filebase"
- outf=$outdir/$filebase
- if [ ! -f $outf ]; then
-   [ -e $tmpf ]  || $getfileherepref/$filebase $tmpdir/
-#   rsync -av $file $tmpdir/
-   cdo sellonlatbox,${bbox}  $tmpf ${outf}.tmp
-   mv ${outf}.tmp $outf
-   ls -l $tmpf $outf
-   rm $tmpf
- fi
 
 
 rm -rf $tmpdir
 
 
-#echo 'Checking ECMWF VEG files'
-#veg_latest=/lustre/tmp/silamdata/tmp/ecglob100_VEG__latest.sfc
-#veg_latest_arch=/arch/silam/bulk/data/meteo/EC_OPER/veg/ecglob100_VEG__latest.sfc
-#
-#if [[ ! -r $veg_latest || $veg_latest -ot $veg_latest_arch ]]; then
-#    echo "Restoring VEG file"
-#    cp -pv $veg_latest_arch $veg_latest
-#fi
-#echo Done!
-#
-#exit 0
+echo Done!
+
+exit 0
 
 
 
