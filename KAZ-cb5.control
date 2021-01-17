@@ -27,7 +27,7 @@ END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
   dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file = GRIB  meteo/ecglob100_VEG_%ay4%am2%ad2%ah2+00.sfc
+  static_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%am2%ad2%ah2001
 
   static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
 
