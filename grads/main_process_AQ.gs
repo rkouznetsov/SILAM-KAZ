@@ -23,6 +23,7 @@ factor = "28e6"
 massUnit = "ugCO"
 *scale_legend = "100 lin 0"
 scale_legend = "1 log 8"
+colour = 'def_co' 
 colour = 'def_lowwhite' 
 'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
 
@@ -55,32 +56,33 @@ factor = "14e6"
 massUnit = "ugN"
 substNm = "NO2_gas"
 scale_legend = "1.0 logcoarse 0"
+colour = 'def_lowgrey'
 colour = 'def_lowblue'
 'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
 
 
-substNm = "NO_gas"
-massUnit = "ugN"
-factor = "14e6"
-scale_legend = "1 logcoarse 0" 
-colour = 'def_lowblue'
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*substNm = "NO_gas"
+*massUnit = "ugN"
+*factor = "14e6"
+*scale_legend = "1 logcoarse 0" 
+*colour = 'def_lowblue'
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
-factor = "14e6"
-massUnit = "ugN"
-substNm = "HNO3_gas"
-scale_legend = "0.2  log 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*factor = "14e6"
+*massUnit = "ugN"
+*substNm = "HNO3_gas"
+*scale_legend = "0.2  log 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
-factor = "14e6"
-substNm = "NH3_gas"
-scale_legend = "0.5  log 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*factor = "14e6"
+*substNm = "NH3_gas"
+*scale_legend = "0.5  log 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
- factor = "14e6"
-substNm = "PAN_gas"
-scale_legend = "0.05 log 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+* factor = "14e6"
+*substNm = "PAN_gas"
+*scale_legend = "0.05 log 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
 factor = "30e6"
 massUnit = "ugHCHO"
@@ -88,23 +90,23 @@ substNm = "HCHO_gas"
 scale_legend = "0.2 logcoarse 0" 
 'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
 
-factor = "34e6"
-massUnit = "ugH2O2"
-substNm = "H2O2_gas"
-scale_legend = "0.5 log 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*factor = "34e6"
+*massUnit = "ugH2O2"
+*substNm = "H2O2_gas"
+*scale_legend = "0.5 log 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
-massUnit = "ugN"
-factor = "14e6"
-substNm = "HONO_gas"
-scale_legend = "0.005 log 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*massUnit = "ugN"
+*factor = "14e6"
+*substNm = "HONO_gas"
+*scale_legend = "0.005 log 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
 *factor = "1"
-factor = "33e6"
-massUnit = "ugHO2"
-substNm = "HO2_gas"
-scale_legend = "0.001 logcoarse 0" 
-'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*factor = "33e6"
+*massUnit = "ugHO2"
+*substNm = "HO2_gas"
+*scale_legend = "0.001 logcoarse 0" 
+*'run 'drawScr_1subst' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 
 'quit'

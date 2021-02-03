@@ -1,23 +1,34 @@
-#!/bin/bash
-set -u -e
+#!/bin/sh
+#PBS -N PLOTSILAM
+#PBS -l walltime=2:00:00
+###PBS -l select=16:ncpus=36:vntype=cray_compute -lplace=scatter
+#PBS -l nodes=1
+#PBS -q IMD
+#PBS -j oe
+#PBS -o /home/imdemrc/SILAM-IMD/plotsilammpi.out
+#PBS -e /home/imdemrc/SILAM-IMD/plotsialmmpi.err
 
+module load precompiled/grads/2.1.1.b0
+. /home/imdemrc/SILAM-IMD/environment
 set -o pipefail
-
 umask 0002
 
 nproc=`nproc`
+nproc=1
+#export fcdate=20201110
 #nproc="1 echo"  # this disables all xargs calls
 
 # environment: version, family, publish
 
 
-gradsscriptdir=$scriptdir/grads
+#gradsscriptdir=$scriptdir/grads
+gradsscriptdir=$scriptdir/Arpitnew/grads
 pm_script=$gradsscriptdir/main_process_pm.gs
 apta_script=$gradsscriptdir/main_process_AQ.gs
 
 
 ### WARNING system $grads environment to be used
-grads="grads"
+grads="aprun -n 1 grads"
 ## grads=true # uncomment to disable grads calls
 rsync="/usr/bin/rsync -v"
 
@@ -40,14 +51,19 @@ for h in `seq 0 $maxhours`; do ## Plot 0-th hour
    dates="$dates $d"
 done
 
-
-ioff=0 ## Start plotting with first hour
-for d in $dates; do
-  pm_binary=$outputdir/$fcdate${outsuff}/PM_${d}.nc4
-  binary=$outputdir/$fcdate${outsuff}/${d}.nc4
-  echo "\"run $pm_script   $analysis_time ${pm_binary}  $picture_dir $ioff $mpdset\"" 
-  echo "\"run $apta_script $analysis_time    ${binary}  $picture_dir $ioff $mpdset\"" 
-  ioff=`expr $ioff + 1`
+for f in 1; do
+  ioff=0 
+  for d in $dates; do
+    binary=$outputdir/$fcdate${outsuff}/${d}.nc
+    echo "\"run $apta_script $analysis_time    ${binary}  $picture_dir $ioff $mpdset\"" 
+    ioff=`expr $ioff + 1`
+  done
+  ioff=0
+  for d in $dates; do
+    pm_binary=$outputdir/$fcdate${outsuff}/PM_${d}.nc
+    echo "\"run $pm_script   $analysis_time ${pm_binary}  $picture_dir $ioff $mpdset\"" 
+    ioff=`expr $ioff + 1`
+  done
 done | xargs -t -l -P $nproc $grads -bpc
 
 # put logo if corresponding command is provided
@@ -89,7 +105,7 @@ if $publish; then
        ii=`expr $ii + 1`  
     done
 
-    #deploy animation if not yet...
+#    deploy animation if not yet...
     rsync -av $scriptdir/www/*.html .
     if [ !  -d Napit ]; then
      tar -xvf  $scriptdir/www/Napit.tar
@@ -102,4 +118,3 @@ if $publish; then
     $rsync -a --delete  $outputdir/webloads/* $fmi_data_path/
 fi
 exit 0
-

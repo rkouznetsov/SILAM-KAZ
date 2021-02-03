@@ -38,7 +38,7 @@ if (strlen(mpdset) > 0)
 * Thin short dash
    'set mpt 3 1 3 2'
 * rivers -- blue 
-   'set mpt 4 4 1 0.5'
+*   'set mpt 4 4 1 0.5'
    'set xlab off'
    'set ylab off'
 else
@@ -458,7 +458,7 @@ if(ifContinue = 1)
 *
 *     'swap'
       outfname = outDir'/'substNm_out''levnm_out'_'filesuff''math_format('%03.0f',nbr)
-
+       say outfname
       if (IF3PANEL = TRUE )
          'printim 'outfname'.png x800 y1000 white'
       else

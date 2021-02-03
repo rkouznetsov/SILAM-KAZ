@@ -143,14 +143,14 @@ colour = 'def_lowblue'
 *
 
 
-substNm = "AQI"
+*substNm = "AQI"
 
 * These do not matter. Just to keep the same interface
-factor = "1"
-massUnit = "1"
-scale_legend = "10.0 log 0"
-colour = 'def_lowwhite' 
-'run 'drawScr_AQI' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' 'scale_legend' 'outDir' 'hroff' 'mpdset
+*factor = "1"
+*massUnit = "1"
+*scale_legend = "10.0 log 0"
+*colour = 'def_lowwhite' 
+*'run 'drawScr_AQI' 'ncFnm' 'substNm' 'substNm' 'factor' 'massUnit' 'LastAnalStr' 'colour' *'scale_legend' 'outDir' 'hroff' 'mpdset
 'quit'
 
 'quit'
