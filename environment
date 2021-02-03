@@ -6,41 +6,41 @@ SAVED_OPTIONS=$(set +o)
 set -x
 
 
-export scriptdir=`pwd`
+export scriptdir=/home/imdemrc/SILAM-IMD
 
 
-export METEO_DIR=${scriptdir}/meteo
+export METEO_DIR=${scriptdir}/Meteo.arch
 export OUTPUT_DIR=${scriptdir}/output
 export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 
 
-#export silam_binary=${scriptdir}/silam-model/bin/silam_v5_6.gnumpi # MPI run
-export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
+export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnumpi # MPI run
+#export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
-#export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=8
 
 
 export outsuff="" ## Can be set non-empty to alter the  output directory
 
 export bbox=
 
-export fcdate=`date -u -d "3 hours" +%Y%m%d`
+###export fcdate=`date -u -d "3 hours" +%Y%m%d`
 
-export maxhours=48
-
+export maxhours=72
 #Suite-specific setup
 export suitename=AQ-IMD
 export email="ananda.das@imd.gov.in"
-export lonrange="65.,100."
-export latrange="5.,40."
+export lonrange="59.,101."
+export latrange="-1.,41."
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
-export mpdset="mpd_ind"
+#export mpdset="mpd_ind"
+export mpdset="rupres"
 
 export publish=true
 # Geometry depends on the picture Upper-leftcorner of logo with respect
 # to upper-left corner of a picture 
-export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
+export PUTLOGOCMD="composite  -geometry  +95+465  $scriptdir/imdlogo.png"
 # Special logo for aqi and pollen index pictures
 export PUTLOGOCMDINDEX="$PUTLOGOCMD"
 
