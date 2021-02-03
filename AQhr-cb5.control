@@ -29,15 +29,11 @@ LIST = METEO_PARAMETERS
  dynamic_meteo_file  = NETCDF:WRF_OUTPUT Meteo.arch/India4Silam/%ay4%am2%ad2%ah2/wrfout_d01_%y4-%m2-%d2_%h2:00:00.nc 
 # dynamic_meteo_file  = NETCDF:WRF_OUTPUT WRF/%ay4%am2%ad2%ah2/wrfout_d01_%y4-%m2-%d2_%h2:00:00.nc 
  static_meteo_file  = NETCDF:WRF_OUTPUT Meteo.arch/India4Silam/%ay4%am2%ad2%ah2/wrfout_d01_%ay4-%am2-%ad2_%ah2:00:00.nc 
- static_meteo_file = NETCDF:TZ_index EC_OPER/tz_index_02deg.nc4 
-
-#  dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
-#  static_meteo_file = GRIB  meteo/ecglob100_VEG_%ay4%am2%ad2%ah2+00.sfc
-
-#  static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
+   static_meteo_file = NETCDF:c4_frac static_fields/c4_frac.nc
+   static_meteo_file = NETCDF:irrigated_area static_fields/irrigated_area.nc
 
  static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
-#  static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
+ static_meteo_file = NETCDF:TZ_index static_fields/tz_index_02deg.nc4 
   meteo_time_step = 1 hr
   if_wait_for_data = NO
   abl_parameterization_method = FULL_PARAM
@@ -50,6 +46,7 @@ END_LIST = METEO_PARAMETERS
 LIST = EMISSION_PARAMETERS
 
 #  emission_source = EULERIAN /fmi/scratch/project_2001411/andreas/AirQast/emis/GEIAv1_lightning_NOx_1990_12790-withcellarea_025.sa2.hdr
+
    emission_source = EULERIAN emis/lightning/GEIAv1_lightning_NOx_1990_12790-withcellarea1-3km.sa2.hdr
 
   emission_source = EULERIAN emis/MEGAN/MEGAN-MACC_biogenic_monoterpene_as2010.sa2.hdr
@@ -57,34 +54,35 @@ LIST = EMISSION_PARAMETERS
 
 #   emission_source = EULERIAN emis/IS4FIRES_v2_0/src_fire_excl_ff6yrs_2019-cb5.fs1
 
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALD2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALDX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/BENZENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8_2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8-CAMS-GLOB-ANT-as2019.sa2.hdr
 
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ALD2-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ALDX-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/BENZENE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/CH3Cl-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/CO-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/EC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETHA-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETH-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/ETOH-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/HCHO-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/IOLE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/NH3-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/NOX-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/OC_FINE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/OLE5-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/PAR5-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/SO2-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/TOLUENE-CAMS-GLOB-ANT-as2017.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v21_India_CB5v2_as_2017/XYLENE-CAMS-GLOB-ANT-as2017.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/CO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/EC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETHA-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETOH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/HCHO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/IOLE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NH3-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NOX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OLE5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/PAR5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/SO2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/TOLUENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/XYLENE-CAMS-GLOB-ANT-as2019.sa2.hdr
 
 ## These guys are missing from CAMS_GLOB
-  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
+#  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
   emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/PM_COARSE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
 
   emission_source = EULERIAN  emis/sslt/src_dms.ini
   emission_source = EULERIAN  emis/sslt/src_sea_salt_global.ini
-  emission_source = EULERIAN  emis/dust-simple/src_simple_dust.ini
+  emission_source = EULERIAN  emis/dust-simple/src_simple_dust-10km.ini
 
   cut_area_source_if_outside_meteo_grid = YES
   if_technical_source_dump = NONE
@@ -119,7 +117,7 @@ LIST = TRANSFORMATION_PARAMETERS
   methylchloroform_OH_rate_factor = 1.0
   photolysis_affected_by_o3col = NO
   photolysis_affected_by_aod = YES
-  photolysis_AOD_wavelength = 280 nm
+  photolysis_AOD_wavelength = 320 nm
   #cloud_model_for_photolysis = DETAILED_CLOUD
   cloud_model_for_photolysis = SIMPLE_CLOUD
   cbm_tolerance = FAST
