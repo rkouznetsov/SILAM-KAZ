@@ -13,7 +13,7 @@ basedate=`date -u -d "$basedate" +%Y%m%d`
 set -u 
 ncks=ncks
 
-BND_PATH=${BOUNDARY_DIR}
+BND_PATH=${BOUNDARY_DIR}571
 
 targetdir=$BND_PATH/`date -u -d "$basedate" +%Y%m%d00`
 mkdir -p $targetdir
@@ -24,20 +24,12 @@ cd $targetdir
 #echo $SHELL
 #exit 1
 
-runpref="silam_glob_v5_6_RUN_"
-urlbaseNCSS="http://silam.fmi.fi/thredds/ncss/silam_glob_v5_6/runs/$runpref"
-urlbase="http://silam.fmi.fi/thredds/dodsC/silam_glob_v5_6/runs/$runpref"
+runpref="silam_glob_v5_7_1_RUN_"
+urlbaseNCSS="https://silam.fmi.fi/thredds/ncss/silam_glob_v5_7_1/runs/$runpref"
+urlbase="https://silam.fmi.fi/thredds/dodsC/silam_glob_v5_7_1/runs/$runpref"
 
-species="AVB0_gas AVB0_m_50 BVB0_gas BVB0_m_50 C2O3_gas C5H8_2_gas
-C5H8_gas CO_gas EC_m_50 ETH_gas H2O2_gas HCHO_gas
-HNO3_gas HO2_gas HONO_gas N2O5_gas NH3_gas NH415SO4_m_20 NH415SO4_m_70 NH4NO3_m_70 NMVOC_gas NO2_gas NO3_c_m3_0 NO3_gas NO_gas O1D_gas O3_gas OH_gas OLE_gas OPEN_gas 
-O_gas PAN_gas PAR_gas PM10 PM2_5 PM_FRP PM_FRP_m_17 PM_m6_0 PNA_gas ROR_gas 
-SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas 
-dust_m1_5 dust_m20 dust_m6_0 dust_m_30 mineral_m_50 sslt sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50"
-
-#List form global v5_6 that is pesent in KAZ
-species="ALD2_gas AVB0_gas AVB0_m_50 AVB1e0_gas AVB1e0_m_50 AVB1e1_gas AVB1e1_m_50 AVB1e2_gas AVB1e2_m_50 AVB1e3_gas AVB1e3_m_50 AVB1e4_gas AVB1e5_gas AVB1e6_gas BVB0_gas BVB0_m_50 BVB1e0_gas BVB1e0_m_50 BVB1e1_gas BVB1e1_m_50 BVB1e2_gas BVB1e2_m_50 BVB1e3_gas BVB1e3_m_50 C2O3_gas C5H8_2_gas C5H8_gas CO_gas CRES_gas CRO_gas EC_m_50 ETH_gas H2O2_gas HCHO_gas HNO3_gas HO2_gas HONO_gas MGLY_gas N2O5_gas NH3_gas NH415SO4_m_20 NH415SO4_m_70 NH4NO3_m_70 NO_gas NO2_gas NO3_gas NO3_c_m3_0 O1D_gas O3_gas OH_gas OLE_gas OPEN_gas O_gas PAN_gas PAR_gas PM_FRP_m_17 PM_m6_0 PNA_gas ROR_gas SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas dust_m1_5 dust_m20 dust_m6_0 dust_m_30 mineral_m_50 sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50" 
-
+#List form global v5_7_1 that is pesent in IND
+species="AACD_gas ALD2_gas ALDX_gas AVB0_gas AVB0_m_50 AVB1e0_gas AVB1e0_m_50 AVB1e1_gas AVB1e1_m_50 AVB1e2_gas AVB1e2_m_50 AVB1e3_gas AVB1e3_m_50 AVB1e4_gas AVB1e5_gas AVB1e6_gas BENZENE_gas BVB0_gas BVB0_m_50 BVB1e0_gas BVB1e0_m_50 BVB1e1_gas BVB1e1_m_50 BVB1e2_gas BVB1e2_m_50 BVB1e3_gas BVB1e3_m_50 C2O3_gas C5H8_2_gas C5H8_gas CH3Cl_gas CO_gas CRES_gas CRO_gas CXO3_gas EC_m_50 ETHA_gas ETH_gas ETOH_gas FACD_gas H2O2_gas HCHO_gas HCO3_gas HNO3_gas HO2_gas HONO_gas IOLE_gas ISPD_gas MEO2_gas MEOH_gas MEPX_gas MGLY_gas N2O5_gas NH3_gas NH415SO4_m_20 NH415SO4_m_70 NH4NO3_m_70 NO2_gas NO3_c_m3_0 NO3_gas NO_gas NTR_gas O1D_gas O3_gas OH_gas OLE5_gas OPEN_gas O_gas PACD_gas PANX_gas PAN_gas PAR5_gas PM_m6_0 PNA_gas ROOH_gas ROR5_gas SESQ_gas SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas dust_m1_5 dust_m20 dust_m6_0 dust_m_30 sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50"
 
 
 
@@ -70,7 +62,7 @@ for try  in `seq 0 10`; do
    missfiles=""
    for hr in `seq 48 3 168` ; do
    #for hr in `seq 48 52` ; do
-        outf=`date -u -d"$basedate + $hr hours" +"SILAM564${suitename}${run}_%Y%m%d%H.nc"`
+        outf=`date -u -d"$basedate + $hr hours" +"SILAM571${suitename}${run}_%Y%m%d%H.nc"`
 
         [ -f $outf ] && continue
         step=`expr $hr - 1`
@@ -96,9 +88,11 @@ for try  in `seq 0 10`; do
    [ -z "$missfiles" ] && break
 done
 
+echo Finishing at `date`
 
 if [ -z "$missfiles" ]; then
   echo "Finished okay after $try attempts"
+  rm -rf *ncks.tmp silam.fmi.fi # Cleanup the garbage left after ncks failures
   exit 0
 else
   echo Failed!
