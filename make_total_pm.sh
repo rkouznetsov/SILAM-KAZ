@@ -22,7 +22,7 @@ ncdir=${OUTPUT_DIR}/$fcdate$outsuff
 scriptfile=$ncdir/ncap2_total_pm_script-$$
 
 
-ncfiles=`ls $ncdir/??????????.nc4 || exit 30`
+ncfiles=`ls $ncdir/??????????.nc || exit 30`
 if3Dcnc=false
 
 
