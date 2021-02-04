@@ -45,7 +45,7 @@ sampledump=`ncdump -h $ncsample`
 
 
 SOA="AVB0_m_50*1e9f AVB1e0_m_50*1e9f AVB1e1_m_50*1e9f AVB1e2_m_50*1e9f AVB1e3_m_50*1e9f BVB0_m_50*1e9f BVB1e0_m_50*1e9f BVB1e1_m_50*1e9f BVB1e2_m_50*1e9f BVB1e3_m_50*1e9f"
-pm25_species="SO4_m_20*96e6f SO4_m_70*96e6f NH415SO4_m_20*117e6f NH415SO4_m_70*117e6f NH4NO3_m_70*80e6f sslt_m_05*1e9f sslt_m_50*1e9f dust_m_30*1e9f dust_m1_5*1e9f  EC_m_50*1e9f mineral_m_50*1e9f $SOA"
+pm25_species="SO4_m_20*96e6f SO4_m_70*96e6f NH415SO4_m_20*117e6f NH415SO4_m_70*117e6f NH4NO3_m_70*80e6f sslt_m_05*1e9f sslt_m_50*1e9f dust_m_30*1e9f dust_m1_5*1e9f  EC_m_50*1e9f $SOA"
 
 pm10_species="NO3_c_m3_0*62e6f sslt_m3_0*1e9f dust_m6_0*1e9f PM_m6_0*1e9f"
 
