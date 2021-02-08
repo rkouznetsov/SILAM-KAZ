@@ -16,6 +16,7 @@ ncks=ncks
 BND_PATH=${BOUNDARY_DIR}571
 
 targetdir=$BND_PATH/`date -u -d "$basedate" +%Y%m%d00`
+echo `date`: Getting BC to $targetdir
 mkdir -p $targetdir
 cd $targetdir
 
@@ -68,6 +69,7 @@ for try  in `seq 0 10`; do
         step=`expr $hr - 1`
          missfiles="$missfiles $outf"
 
+        outftry=${outf}_try${try}
 
         URL="$urlbase$run"
         ## The command that fails, but leaves trace in threds logs, so I could grep your request from there
@@ -75,19 +77,40 @@ for try  in `seq 0 10`; do
 #        exit
         #
         # For some reason thredds does not supply _CoordinateModelRunDate anymore
+
         attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a history_of_appended_files,global,d,,, -a _ChunkSizes,,d,,,"
-        compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc cnc_.*=2"
+        compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc cnc_.*=2 --baa 1"
 
         #   get -> fix attribures -> compress
-        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outf}.tmp && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
+        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outftry}.tmp && ncatted -h $attcmd ${outftry}.tmp && $ncks $compresscmd ${outftry}.tmp $outftry && rm ${outftry}.tmp && echo  $outftry done!) & 
         
         echo  `jobs | wc -l`  $maxjobs 
         while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
    done
    wait
    [ -z "$missfiles" ] && break
-done
 
+   echo 
+   if [ $try -gt 0 ]; then 
+     echo After try $try 
+     for f in $missfiles; do
+       echo 
+       echo Checking $f after try $try 
+
+        ##md5sum ${f}_try* ### Not really needed
+        list=`md5sum ${f}_try? |sort |uniq -c -w 33`
+
+        if echo "$list " | grep "   2"; then  #There are two files with the same checksum
+          echo $list
+          goodfile=`echo "$list " | grep "   2" |awk '{print $3}'`
+          echo Good file $goodfile
+          mv $goodfile $f
+          rm -f ${f}_try*  
+          rm -f ${f}*.ncks.tmp  
+        fi
+     done
+   fi
+done
 echo Finishing at `date`
 
 if [ -z "$missfiles" ]; then
