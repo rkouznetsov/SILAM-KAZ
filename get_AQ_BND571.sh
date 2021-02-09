@@ -82,8 +82,8 @@ for try  in `seq 0 10`; do
         compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc cnc_.*=2 --baa 1"
 
         #   get -> fix attribures -> compress
-        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outftry}.tmp && ncatted -h $attcmd ${outftry}.tmp && $ncks $compresscmd ${outftry}.tmp $outftry && rm ${outftry}.tmp && echo  $outftry done!) & 
-        
+        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outftry}.tmp && ncatted -h $attcmd ${outftry}.tmp && $ncks -O $compresscmd ${outftry}.tmp $outftry && rm ${outftry}.tmp && echo  $outftry done!) & 
+
         echo  `jobs | wc -l`  $maxjobs 
         while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
    done
