@@ -26,13 +26,14 @@ LIST = DISPERSION_PARAMETERS
 END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
-  dynamic_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file = GRIB meteo/F4D%am2%ad2%ah200%am2%ad2%ah2001
-
-  static_meteo_file = GRIB  meteo/era5_glob_physiography.sfc
+  dynamic_meteo_file = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%m2%d2%h2001
+  static_meteo_file  = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%am2%ad2%ah2001
 
   static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
   static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
+  static_meteo_file = NETCDF:c4_frac  meteo/c4_frac.nc
+  static_meteo_file = NETCDF:irrigated_area meteo/irrigated_area.nc
+
   meteo_time_step = 3 hr
   if_wait_for_data = NO
   abl_parameterization_method = FULL_PARAM

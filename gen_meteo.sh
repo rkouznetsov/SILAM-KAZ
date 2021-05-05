@@ -28,7 +28,6 @@ case `hostname` in
 esac
 
 
-outdir=meteo
 
 tmpdir=/dev/shm/KAZ-meteo
 
@@ -41,6 +40,8 @@ anmdh=`date -u -d "$fcdate - 1 day" +%m%d%H`
 antime=`date -u -d "$fcdate - 1 day" +%Y%m%d`
 
 
+outdir=meteo/${antime}00
+mkdir -p $outdir
 
 ## Clumsy. For some reason cdo can't handle different leveltypes smoothly
 for hh in `seq 0 3 $((${maxhours}+24))`; do
@@ -48,7 +49,7 @@ for hh in `seq 0 3 $((${maxhours}+24))`; do
            valdate=`date -u -d "$hh hours  $antime" +"%m%d%H"`
            filebase=F4D${anmdh}00${valdate}001
            tmpf="$tmpdir/$filebase"
-           outf=$outdir/$filebase
+           outf="$outdir/$filebase"
            [ -f $outf ] && continue
 	   echo Doing $getfileherepref/$filebase $tmpdir/
 	   [ -e $tmpf ]  || $getfileherepref/$filebase $tmpdir/
