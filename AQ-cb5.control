@@ -54,27 +54,27 @@ LIST = EMISSION_PARAMETERS
 #   emission_source = EULERIAN emis/IS4FIRES_v2_0/src_fire_excl_ff6yrs_2019-cb5.fs1
 
 
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALD2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALDX-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/BENZENE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8_2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8-CAMS-GLOB-ANT-as2019.sa2.hdr
-#   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/CH3Cl-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/CO-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/EC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETHA-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETH-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETOH-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/HCHO-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/IOLE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NH3-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NOX-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OLE5-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/PAR5-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/SO2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/TOLUENE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/XYLENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/ALD2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/ALDX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/BENZENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/C5H8_2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/C5H8-CAMS-GLOB-ANT-as2019.sa2.hdr
+#   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/CH3Cl-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/CO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/EC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/ETHA-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/ETH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/ETOH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/HCHO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/IOLE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/NH3-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/NOX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/OC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/OLE5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/PAR5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/SO2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/TOLUENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_noxAirQast_VNM-flatw_CB5v2_as_2019/XYLENE-CAMS-GLOB-ANT-as2019.sa2.hdr
 
 ## These guys are missing from CAMS_GLOB
   emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
@@ -125,7 +125,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 # From bopundaries
 #  initialize_quantity = concentration
-#  initialization_file = NETCDF SILAM-bnd/%ay4%am2%ad200/SILAM564${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
+#  initialization_file = NETCDF SILAM-bnd571/%ay4%am2%ad200/SILAM571${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
 
 # From yesterdays' run
   initialize_quantity = concentration
@@ -182,17 +182,17 @@ LIST = OUTPUT_PARAMETERS
   dump_time_step = 24 hr
   grid_method = CUSTOM_GRID
   grid_type = lon_lat
-  grid_title = KAZ-0.2
+  grid_title = VNM-0.2
   resol_flag = 128
   ifReduced = 0
   earth_flag = 0
   wind_component = 0
   reduced_nbr_str = 0
 
-   lon_start = 60.1
-   lat_start = 0.1
-   lon_end = 99.9
-   lat_end = 39.9
+   lon_start = 90.1
+   lat_start = 5.1
+   lon_end = 119.9
+   lat_end = 24.9
    dx = 0.2
    dy = 0.2
 

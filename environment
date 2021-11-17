@@ -3,7 +3,7 @@
 #save options
 SAVED_OPTIONS=$(set +o)
 
-set -x
+#set -x
 
 
 export scriptdir=`pwd`
@@ -14,7 +14,6 @@ export OUTPUT_DIR=${scriptdir}/output
 export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 
 
-#export silam_binary=${scriptdir}/silam-model/bin/silam_v5_6.gnumpi # MPI run
 export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
@@ -25,17 +24,17 @@ export outsuff="" ## Can be set non-empty to alter the  output directory
 
 export bbox=
 
-export fcdate=`date -u -d "3 hours" +%Y%m%d`
+export fcdate=`date -u -d "-3 hours" +%Y%m%d`
 
 export maxhours=48
 
 #Suite-specific setup
-export suitename=AQ-IMD
-export email="test-imd"
-export lonrange="59.,101."
-export latrange="-1.,41."
+export suitename=AQ-VNM
+export email="test-vnm"
+export lonrange="90.,120."
+export latrange="5.,25."
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
-export mpdset="mpd_ind"
+export mpdset="mpd_vnm"
 
 export publish=true
 # Geometry depends on the picture Upper-leftcorner of logo with respect
