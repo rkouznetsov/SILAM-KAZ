@@ -31,7 +31,7 @@ export maxhours=48
 #Suite-specific setup
 export suitename=AQ-VNM
 export email="test-vnm"
-export lonrange="99.5,112.5."
+export lonrange="99.5,112.5"
 export latrange="7.5,25.5"
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
 export mpdset="mpd_vnm"

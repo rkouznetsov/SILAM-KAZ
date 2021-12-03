@@ -7,7 +7,7 @@
 # Enjoy!
 
 
-basedate=${1:-"0 days ago"} 
+basedate=${1:-"2 days ago"} 
 basedate=`date -u -d "$basedate" +%Y%m%d`
 
 set -u 
