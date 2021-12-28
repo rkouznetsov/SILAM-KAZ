@@ -54,35 +54,35 @@ LIST = EMISSION_PARAMETERS
 #   emission_source = EULERIAN emis/IS4FIRES_v2_0/src_fire_excl_ff6yrs_2019-cb5.fs1
 
 
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALD2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ALDX-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/BENZENE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8_2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/C5H8-CAMS-GLOB-ANT-as2019.sa2.hdr
-#   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/CH3Cl-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/CO-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/EC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETHA-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETH-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/ETOH-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/HCHO-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/IOLE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NH3-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/NOX-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/OLE5-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/PAR5-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/SO2-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/TOLUENE-CAMS-GLOB-ANT-as2019.sa2.hdr
-   emission_source = EULERIAN emis/CAMS_GLOB_v42aAirQast_India-flatw_CB5v2_as_2019/XYLENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/ALD2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/ALDX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/BENZENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/C5H8_2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/C5H8-CAMS-GLOB-ANT-as2019.sa2.hdr
+#   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/CH3Cl-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/CO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/EC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/ETHA-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/ETH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/ETOH-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/HCHO-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/IOLE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/NH3-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/NOX-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/OC_FINE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/OLE5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/PAR5-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/SO2-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/TOLUENE-CAMS-GLOB-ANT-as2019.sa2.hdr
+   emission_source = EULERIAN emis/CAMS_GLOB_v42a_India_CB5v2_as_2019-v4i4a/XYLENE-CAMS-GLOB-ANT-as2019.sa2.hdr
 
 ## These guys are missing from CAMS_GLOB
-  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
-  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/PM_COARSE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
+##  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg/MINERAL_FINE-EDGAR432-GLOB-ANT-as2012.sa2.hdr  ## Was not in DA run
+  emission_source = EULERIAN emis/EDGAR_GLOB_v432_CB5v2_with05deg_v4i4/PM_COARSE-EDGAR432-GLOB-ANT-as2012.sa2.hdr
 
   emission_source = EULERIAN  emis/sslt/src_dms.ini
   emission_source = EULERIAN  emis/sslt/src_sea_salt_global.ini
-  emission_source = EULERIAN  emis/dust-simple/src_simple_dust.ini
+  emission_source = EULERIAN  emis/dust-simple/src_simple_dust_v3.ini
 
   cut_area_source_if_outside_meteo_grid = YES
   if_technical_source_dump = NONE
