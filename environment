@@ -9,7 +9,7 @@ export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 
 
 #export silam_binary=${scriptdir}/silam-model/bin/silam_v5_6.gnumpi # MPI run
-export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
+export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_8pub.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
 #export OMP_NUM_THREADS=8
