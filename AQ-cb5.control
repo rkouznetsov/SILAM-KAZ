@@ -190,8 +190,8 @@ LIST = OUTPUT_PARAMETERS
   reduced_nbr_str = 0
 
    lon_start = 100.05
-   lat_start = 8.05
-   lon_end = 111.95
+   lat_start = 1.05
+   lon_end = 118.95
    lat_end = 24.95
    dx = 0.1
    dy = 0.1

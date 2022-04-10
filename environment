@@ -14,7 +14,7 @@ export OUTPUT_DIR=${scriptdir}/output
 export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 
 
-export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_7.gnu   # serial run
+export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_8pub.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
 #export OMP_NUM_THREADS=8
@@ -31,8 +31,13 @@ export maxhours=48
 #Suite-specific setup
 export suitename=AQ-VNM
 export email="test-vnm"
-export lonrange="99.5,112.5"
-export latrange="7.5,25.5"
+export lonrange="99.5,119.5"   ## 
+export latrange="0.5,25.5"
+
+#According to the law, Viet Nam has a boundary from 4°30' to 23°30' north
+#latitude, from 102°00' to 118°00' east longitude.
+
+
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
 export mpdset="mpd_vnm"
 
