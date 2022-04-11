@@ -8,6 +8,7 @@ LIST = GENERAL_PARAMETERS
   start_time = ${start_time}
   computed_period = ${maxhours} hr
   time_step = 10 min
+   progress_file_name = CMD ${progresscmd}
   cut_area_source_if_outside_meteo_grid = YES
   computation_accuracy = 5
 END_LIST = GENERAL_PARAMETERS
