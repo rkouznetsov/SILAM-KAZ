@@ -29,6 +29,8 @@ else
   export MAILTO=""
 fi
 
+export nx=1
+export ny=1
 
 export outsuff="" ## Can be set non-empty to alter the  output directory
 

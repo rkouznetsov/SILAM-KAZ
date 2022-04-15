@@ -5,10 +5,10 @@ LIST = GENERAL_PARAMETERS
   case_name = ${suitename}
   direction_in_time = FORWARD
   simulation_type = EULERIAN
-  start_time = ${start_time}
-  computed_period = ${maxhours} hr
+  start_time = 2018 12 15 0 0 0.
+  computed_period = 6 hr
   time_step = 6 min
-   progress_file_name = CMD ${progresscmd}
+   progress_file_name = CMD echo
   cut_area_source_if_outside_meteo_grid = YES
   computation_accuracy = 5
 END_LIST = GENERAL_PARAMETERS
@@ -27,8 +27,9 @@ LIST = DISPERSION_PARAMETERS
 END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
-  dynamic_meteo_file = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file  = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%am2%ad2%ah2001
+  dynamic_meteo_file = GRIB ERA5glob-VNM/%ay4/era5_glob_%ay4%am2%ad2%ah2+%f3.ml
+  dynamic_meteo_file = GRIB ERA5glob-VNM/%ay4/era5_glob_%ay4%am2%ad2%ah2+%f3.sfc
+  static_meteo_file  = GRIB ERA5glob-VNM/era5_glob_physiographyVNM.sfc
 
   static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
   static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
@@ -40,8 +41,8 @@ LIST = METEO_PARAMETERS
   abl_parameterization_method = FULL_PARAM
   number_of_precipitation_fields = 2
   max_hole_in_meteo_data = 0 hr
-#  use_lai = DYNAMIC2
-  use_lai = STATIC2
+  use_lai = DYNAMIC2
+#  use_lai = STATIC2
 END_LIST = METEO_PARAMETERS
 
 LIST = EMISSION_PARAMETERS
@@ -125,15 +126,16 @@ END_LIST = TRANSFORMATION_PARAMETERS
 LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 # From bopundaries
-#  initialize_quantity = concentration
+  initialize_quantity = concentration
+  initialization_file = NETCDF glob3D-VNM/glob3D-VNM_%y4%m2%d2.nc4
 #  initialization_file = NETCDF SILAM-bnd571/%ay4%am2%ad200/SILAM571${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
 
 # From yesterdays' run
-  initialize_quantity = concentration
-  initialize_quantity = advection_moment_x
-  initialize_quantity = advection_moment_y
-  initialize_quantity = advection_moment_z
-  initialization_file = GRADS    ${OUTPUT_DIR}/%ay4%am2%ad2/%y4%m2%d2%h2_%y4_%m2_%d2_%h2.00.0.0_dump.grads.super_ctl
+#  initialize_quantity = concentration
+#  initialize_quantity = advection_moment_x
+#  initialize_quantity = advection_moment_y
+#  initialize_quantity = advection_moment_z
+#  initialization_file = GRADS    ${OUTPUT_DIR}/%ay4%am2%ad2/%y4%m2%d2%h2_%y4_%m2_%d2_%h2.00.0.0_dump.grads.super_ctl
 
 #
 
@@ -228,7 +230,7 @@ LIST = STANDARD_SETUP
   standard_cocktail_fnm = ^standard_auxillary_cocktails.ini
   standard_cocktail_fnm = ^standard_fires_cocktails.ini
   standard_cocktail_fnm = ^standard_SOA_cocktails.ini
-  grib_code_table_fnm = ^grib_code_table_v5.silam
+  grib_name_table_fnm = ^grib_name_table.silam
   netcdf_name_table_fnm = ^netcdf_name_table.silam
   timezone_list_fnm = ^tzindex_added_country_codes.dat
   photolysis_data_file = ^photolysis_finrose_84React_for5_7.dat
