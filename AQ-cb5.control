@@ -27,21 +27,21 @@ LIST = DISPERSION_PARAMETERS
 END_LIST = DISPERSION_PARAMETERS
 
 LIST = METEO_PARAMETERS
-  dynamic_meteo_file = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%m2%d2%h2001
-  static_meteo_file  = GRIB meteo/%ay4%am2%ad2%ah2/F4D%am2%ad2%ah200%am2%ad2%ah2001
+  dynamic_meteo_file = NETCDF:WRF_OUTPUT WRF_OUT/%ay4%am2%ad2%ah2/wrfout_d01_%y4-%m2-%d2_%h2:00:00
+  static_meteo_file =  NETCDF:WRF_OUTPUT WRF_OUT/%ay4%am2%ad2%ah2/wrfout_d01_%ay4-%am2-%ad2_%ah2:00:00
 
   static_meteo_file = GRADS emis/sslt/salinity_map_global_1deg.fld_water_salinity.grads.super_ctl
   static_meteo_file = NETCDF:TZ_index meteo/tz_index_02deg.nc4
   static_meteo_file = NETCDF:c4_frac  meteo/c4_frac.nc
   static_meteo_file = NETCDF:irrigated_area meteo/irrigated_area.nc
 
-  meteo_time_step = 3 hr
+  meteo_time_step = 1 hr
   if_wait_for_data = NO
   abl_parameterization_method = FULL_PARAM
   number_of_precipitation_fields = 2
   max_hole_in_meteo_data = 0 hr
-#  use_lai = DYNAMIC2
-  use_lai = STATIC2
+  use_lai = DYNAMIC1
+#  use_lai = STATIC2
 END_LIST = METEO_PARAMETERS
 
 LIST = EMISSION_PARAMETERS
@@ -98,7 +98,7 @@ LIST = TRANSFORMATION_PARAMETERS
   dry_deposition_scheme = KS2011_TF
   surface_resistance_method = WES2013
   wet_deposition_scheme = 2018_SCAVENGING
-  max_scav_rate_depends_on = CAPE
+  max_scav_rate_depends_on = HORIZONTAL_WIND #CAPE
   use_dynamic_albedo = YES
   if_actual_humidity_for_particle_size = YES
   default_relative_humidity = 0.8
@@ -191,7 +191,7 @@ LIST = OUTPUT_PARAMETERS
   reduced_nbr_str = 0
 
    lon_start = 100.05
-   lat_start = 1.05
+   lat_start = 5.55
    lon_end = 118.95
    lat_end = 24.95
    dx = 0.1

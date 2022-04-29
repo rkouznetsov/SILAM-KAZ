@@ -40,7 +40,7 @@ export maxhours=48
 
 #Suite-specific setup
 export suitename=AQ-VNM
-export email="test-vnm"
+export email="hoanghuygm@gmail.com,luanvn@cem.gov.vn"
 export lonrange="99.5,119.5"   ## 
 export latrange="0.5,25.5"
 

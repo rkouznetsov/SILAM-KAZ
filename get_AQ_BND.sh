@@ -53,7 +53,7 @@ echo $varlist
 bbox="-d lon,${lonrange} -d lat,${latrange} -d hybrid,0,18 -d hybrid_half,0,19"
 
 
-maxjobs=16
+maxjobs=8
 
 # make dates
 run=`date -u -d $basedate +"%FT00:00:00Z"`
