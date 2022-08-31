@@ -126,7 +126,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
 
 # From bopundaries
 #  initialize_quantity = concentration
-#  initialization_file = NETCDF SILAM-bnd571/%ay4%am2%ad200/SILAM571${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
+#  initialization_file = NETCDF SILAM-bnd58/%ay4%am2%ad200/SILAM58${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
 
 # From yesterdays' run
   initialize_quantity = concentration
