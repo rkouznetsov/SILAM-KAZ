@@ -123,8 +123,8 @@ LIST = TRANSFORMATION_PARAMETERS
 END_LIST = TRANSFORMATION_PARAMETERS
 
 LIST = INITIAL_AND_BOUNDARY_CONDITIONS
-
-# From bopundaries
+#--------------------------------------------------------------------------------------------------------------------------
+# From bopundaries run when I need force
 #  initialize_quantity = concentration
 #  initialization_file = NETCDF SILAM-bnd58/%ay4%am2%ad200/SILAM58${suitename}%ay4-%am2-%ad2T%ah2:00:00Z_%y4%m2%d2%h2.nc
 
@@ -134,7 +134,7 @@ LIST = INITIAL_AND_BOUNDARY_CONDITIONS
   initialize_quantity = advection_moment_y
   initialize_quantity = advection_moment_z
   initialization_file = GRADS    ${OUTPUT_DIR}/%ay4%am2%ad2/%y4%m2%d2%h2_%y4_%m2_%d2_%h2.00.0.0_dump.grads.super_ctl
-
+#--------------------------------------------------------------------------------------------------------------------------
 #
 
   boundary_type = DIRICHLET
