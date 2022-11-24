@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#save options
-SAVED_OPTIONS=$(set +o)
-
-set -x
-
-
 export scriptdir=`pwd`
 
 
@@ -18,7 +12,7 @@ export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
 export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_8pub.gnu   # serial run
 export silam_ini=${scriptdir}/../silam-model/ini  
 
-if [ -n "${ECF_NAME}" ]; then 
+if [ -n "${ECF_NAME-}" ]; then 
   echo "Running form ecflow"
   export progresscmd="ecflow_client --meter=progress"
   #export MAILTO="rostislav.kouznetsov@fmi.fi,mikhail.sofiev@fmi.fi"
@@ -54,6 +48,3 @@ export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.pn
 # Special logo for aqi and pollen index pictures
 export PUTLOGOCMDINDEX="$PUTLOGOCMD"
 
-# restore options
-set +x
-eval "$SAVED_OPTIONS"
