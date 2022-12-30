@@ -2,6 +2,7 @@
 
 export scriptdir=`pwd`
 
+export maxhours=48
 
 export METEO_DIR=${scriptdir}/meteo
 export OUTPUT_DIR=${scriptdir}/output
@@ -28,13 +29,13 @@ fi
 export outsuff="" ## Can be set non-empty to alter the  output directory
 
 export fcdate=`date -u -d "3 hours" +%Y%m%d`
+#fcdate=20221227
 
-export maxhours=48
-
+export suitename="KAZ"
 export email="test-kaz"
 export lonrange="44.,90."
 export latrange="35.,61."
-export suitename="KAZ"
+export bbox="${lonrange},${latrange}" #lo,lo,la,la
 
 export publish=true
 # Geometry depends on the picture Upper-leftcorner of logo with respect
@@ -42,3 +43,4 @@ export publish=true
 export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
 # Special logo for aqi and pollen index pictures
 export PUTLOGOCMDINDEX="$PUTLOGOCMD"
+
