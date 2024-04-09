@@ -96,7 +96,7 @@ if $publish; then
     fi
 
     popd
-    fmi_data_path=eslogin:/fmi/data/silam.fmi.fi/partners/${suitename}
+    fmi_data_path=/fmi/data/silam.fmi.fi/partners/${suitename}
     echo Syncing $outputdir/webloads to $fmi_data_path
 #    mkdir -p $fmi_data_path
     $rsync -a --delete  $outputdir/webloads/* $fmi_data_path/
