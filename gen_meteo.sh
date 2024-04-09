@@ -9,11 +9,13 @@ set -e
 set -u
 
 #export MAILTO="$MAILTO,mikko.aalto@fmi.fi,mikko.partio@fmi.fi"
-metdatdir=/lustre/tmp/silamdata/tmp
+#metdatdir=/lustre/tmp/silamdata/tmp
+metdatdir=/arch/silam/bulk/data/haze_tmp/
 
 case `hostname` in
      haze*)
-      getfileherepref="rsync -av  eslogin:${metdatdir}"
+     	# getfileherepref="rsync -av teho:${metdatdir}"
+     	getfileherepref="rsync -av ${metdatdir}"
       cdoaec="-z aec"
      ;;
      voima*|teho*|eslogin*)
@@ -47,7 +49,7 @@ mkdir -p $outdir
 for hh in `seq 0 3 $((${maxhours}+24))`; do
 
      valdate=`date -u -d "$hh hours  $antime" +"%m%d%H"`
-     filebase=F4D${anmdh}00${valdate}001
+     filebase=F8D${anmdh}00${valdate}001
      tmpf="$tmpdir/$filebase"
      outf="$outdir/$filebase"
      [ -f $outf ] && continue
