@@ -40,6 +40,7 @@ sampledump=`ncdump -h $ncsample`
 
 
 
+ocdvars=`echo  $sampledump |sed -e 's/;/;\n/g' |grep "float ocd_" |sed -e 's/^.*float //' -e 's/(.*$//'`
 
 
 
@@ -93,6 +94,63 @@ pm10_species="NO3_c_m3_0*62e6f sslt_m3_0*1e9f dust_m6_0*1e9f PM_m6_0*1e9f"
 # This line kills ncap2 at haze
 #   script="$script  ram_delete($tmpvar);"
    $verbose &&  script="$script  print(\"Deleted tmp for $var\\n\");"
+#Optical depth
+script="$script *tmp3[\$time,\$lat,\$lon] = 0f;"
+waves="550" 
+if [ ! -z "$ocdvars" ]; then 
+  script="$script tmp3 *= 0.f; tmp3@units=\"\";"
+  for ocdtype in dust sslt part frp abf gas; do
+     mode="NO_MODE"  ##default
+     ocdname=$ocdtype
+     for w in $waves; do
+        outvar="ocd_${ocdtype}_w${w}" 
+        components=""
+        for v in $ocdvars; do
+           echo $v |grep _w$w > /dev/null || continue
+           case $ocdtype in
+              dust|sslt)
+                 echo $v |grep ocd_$ocdtype > /dev/null || continue
+                 ;;
+              frp)
+                 echo $v |grep ocd_PM_FRP > /dev/null || continue
+                 ocdname="fire PM"
+                 ;;
+              part)
+                 echo $v |grep gas_w$w  > /dev/null && continue #Not gas
+                 echo $v |grep GFAS  > /dev/null && continue #Not GFAS 
+                 ocdname="all aerosols"
+                 ;;
+
+              abf)
+                 ocdname="other aerosols"
+                 echo $v |grep gas_w$w  > /dev/null && continue #Not gas
+                 echo $v |grep GFAS  > /dev/null && continue #Not GFAS 
+                 echo $v |grep dust  > /dev/null && continue #Not dust
+                 echo $v |grep sslt  > /dev/null && continue #Not sslt 
+                 echo $v |grep PM_FRP  > /dev/null && continue #Not frp
+                 ;;
+
+              gas)
+                 echo $v |grep gas_w$w > /dev/null || continue   #gas
+                 mode="GAS_PHASE"
+                 ;;
+              *)
+                 echo Strange ocdtype $ocdtype
+                 exit 40
+                 ;;
+           esac
+          script="$script tmp3 += ${v};"
+          components="$components ${v}"
+        done
+
+        [ -z "$components" ] && continue # cycle if nothing added
+
+        script="$script ${outvar} = tmp3; ${outvar}@long_name = \"optical column depth $ocdname @ ${w}nm\"; ${outvar}@components=\"$components\";"
+        script="$script ${outvar}@mode_distribution_type=\"$mode\";"
+        script="$script tmp3 *= 0.f;"
+     done
+  done
+fi
 
 echo $script |sed -e 's/;/;\n/g'> $scriptfile
 
@@ -115,8 +173,6 @@ cat >> $scriptfile <<EOF
   AQISRC@_FillValue = -1b;
   AQISRC@missing_value = -1b;
 
-//Declare it in ram
-  *tmp3[\$time,\$lat,\$lon] = 0f;
 
   tmp3 = cnc_PM2_5(:$sfc,:,:);
   *iPM25 = 1f + (tmp3>10)+ (tmp3>20) +  (tmp3>25) +  (tmp3>50);
