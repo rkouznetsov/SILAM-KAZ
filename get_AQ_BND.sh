@@ -37,7 +37,8 @@ species="AACD_gas ALD2_gas ALDX_gas AVB0_gas AVB0_m_50 AVB1e0_gas AVB1e0_m_50 AV
 
 
 
-varlist="a,b,da,db,a_half,b_half,O3_column,NO2_column,air_dens"
+varlistvert="a,b,da,db,a_half,b_half"
+varlist="O3_column,NO2_column,air_dens"
 
 for sp in $species; do
     varlist="$varlist,vmr_${sp}"
@@ -52,6 +53,14 @@ echo $varlist
 
 # Kazakh domain
 # bbox="spatial=bb&north=61&west=44&east=90&south=35"
+lonmin=`echo $lonrange |sed -e 's/,.*$//'`
+lonmax=`echo $lonrange |sed -e 's/^.*,//'`
+latmin=`echo $latrange |sed -e 's/,.*$//'`
+latmax=`echo $latrange |sed -e 's/^.*,//'`
+
+
+
+bboxncss="north=${latmax}&west=${lonmin}&east=${lonmax}&south=${latmin}&horizStride=1"
 bbox="-d lon,${lonrange} -d lat,${latrange} -d hybrid,0,18 -d hybrid_half,0,19"
 
 
@@ -68,22 +77,31 @@ for try  in `seq 0 10`; do
    #for hr in `seq 48 52` ; do
         outf=`date -u -d"$basedate + $hr hours" +"SILAM58${suitename}${run}_%Y%m%d%H.nc"`
 
+        validtimeNCSS=`date -u -d"$basedate + $hr hours" +"%FT%H:00:00Z"`
+
         [ -f $outf ] && continue
         step=`expr $hr - 1`
          missfiles="$missfiles $outf"
 
 
         URL="$urlbase$run"
-        ## The command that fails, but leaves trace in threds logs, so I could grep your request from there
-        wget -q "$URL?ncksparams=\"$bbox -d time,$hr -v ${varlist}\"&email=$email" -O /dev/null 2>&1>/dev/null || true
-#        exit
         #
         # For some reason thredds does not supply _CoordinateModelRunDate anymore
-        attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a history_of_appended_files,global,d,,, -a _ChunkSizes,,d,,,"
-        compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc vmr_.*=2"
+        attcmd="-a _CoordinateModelRunDate,global,c,c,$run -a history,global,d,,, -a history_of_appended_files,global,d,,, -a History,global,d,,, -a NCO,global,d,,, -a _ChunkSizes,,d,,, "
+        compresscmd="-h $bbox --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --baa=1 --ppc vmr_.*=2"
 
         #   get -> fix attribures -> compress
-        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outf}.tmp && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
+        ( \
+        ncks -O  -v ${varlistvert} "$URL" ${outf}-vert.tmp && \
+        wget -q -O ${outf}-map.tmp "${urlbaseNCSS}${run}?var=$varlist&$bboxncss&time=${validtimeNCSS}&accept=netcdf3&email=${email}" && \
+        cp ${outf}-vert.tmp ${outf}.tmp && \
+        ncks -A  ${outf}-map.tmp  ${outf}.tmp && \
+        ncatted -h $attcmd ${outf}.tmp && \
+        ncks -O $compresscmd  ${outf}.tmp ${outf} && \
+        rm ${outf}.tmp ${outf}-map.tmp ${outf}-vert.tmp && \
+        echo  $outf done!
+       ) &
+#        && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
         
         echo  `jobs | wc -l`  $maxjobs 
         while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
