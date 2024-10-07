@@ -1,5 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
+workdir=/home/bik/silam-inanwp
+
+cd $workdir
+
+. environment
 
 #
 # Makes total PM and optical columns
@@ -22,7 +27,7 @@ ncdir=${OUTPUT_DIR}/$fcdate$outsuff
 scriptfile=$ncdir/ncap2_total_pm_script-$$
 
 
-ncfiles=`ls $ncdir/??????????.nc4 || exit 30`
+ncfiles=`ls $ncdir/??????????.nc || exit 30`
 if3Dcnc=false
 
 
@@ -45,7 +50,7 @@ sampledump=`ncdump -h $ncsample`
 
 
 SOA="AVB0_m_50*1e9f AVB1e0_m_50*1e9f AVB1e1_m_50*1e9f AVB1e2_m_50*1e9f AVB1e3_m_50*1e9f BVB0_m_50*1e9f BVB1e0_m_50*1e9f BVB1e1_m_50*1e9f BVB1e2_m_50*1e9f BVB1e3_m_50*1e9f"
-pm25_species="SO4_m_20*96e6f SO4_m_70*96e6f NH415SO4_m_20*117e6f NH415SO4_m_70*117e6f NH4NO3_m_70*80e6f sslt_m_05*1e9f sslt_m_50*1e9f dust_m_30*1e9f dust_m1_5*1e9f  EC_m_50*1e9f mineral_m_50*1e9f $SOA"
+pm25_species="SO4_m_20*96e6f SO4_m_70*96e6f NH415SO4_m_20*117e6f NH415SO4_m_70*117e6f NH4NO3_m_70*80e6f sslt_m_05*1e9f sslt_m_50*1e9f dust_m_30*1e9f dust_m1_5*1e9f  EC_m_50*1e9f $SOA"
 
 pm10_species="NO3_c_m3_0*62e6f sslt_m3_0*1e9f dust_m6_0*1e9f PM_m6_0*1e9f"
 
@@ -119,11 +124,11 @@ cat >> $scriptfile <<EOF
   *tmp3[\$time,\$lat,\$lon] = 0f;
 
   tmp3 = cnc_PM2_5(:$sfc,:,:);
-  *iPM25 = 1f + (tmp3>10)+ (tmp3>20) +  (tmp3>25) +  (tmp3>50);
+  *iPM25 = 1f + (tmp3>15.5)+ (tmp3>55.4) +  (tmp3>150.4) +  (tmp3>250.4);
   where (iPM25>AQI) { AQI = int(iPM25); AQISRC = 1;}
 
   tmp3 = cnc_PM10(:$sfc,:,:);
-  *iPM10 = 1f + (tmp3>20)+ (tmp3>35) +  (tmp3>50) +  (tmp3>100);
+  *iPM10 = 1f + (tmp3>50)+ (tmp3>150) +  (tmp3>350) +  (tmp3>410);
   where (iPM10>AQI) { AQI = int(iPM10); AQISRC = 2;}
 
   tmp3 = cnc_NO2_gas(:$sfc,:,:)*46e6;
@@ -145,7 +150,7 @@ $verbose && echo && echo "Script:" && echo  && cat $scriptfile
 
 echo -n $filesinout | xargs -n 2 -P 20 -t ncap2 -O -v -S  $scriptfile 
 
-rm $scriptfile
+#rm $scriptfile
 
 $verbose && echo Done!
 

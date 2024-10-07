@@ -373,7 +373,7 @@ if(ifContinue = 1)
       'set strsiz 0.15'
       'draw string 4.25 0.1 Forecast for 'substNm'. Last analysis time: 'AnalTimeString
 *
-*---------------- concentration*'draw title Concentration, 'massUnit'/m3, 'hhmm''dd
+*---------------- concentration
 *       #xmin xmax ymin ymax
 *
       'set vpage 0.25 8.25 3.8 11'
@@ -385,9 +385,7 @@ if(ifContinue = 1)
       if (ifcnc = TRUE)
          'd (cnc_'substNm '(z='ind_down.iLev')*'weight_down.iLev' + cnc_'substNm '(z='ind_up.iLev')*'weight_up.iLev') * ' factor
          'cbarn'
-         
-        'draw string 2.25 7.08 Concentration, 'massUnit'/m3, 'hhmm''dd
- 
+         'draw title Concentration, 'massUnit'/m3, 'hhmm''dd
 
          if(iLev = 1)
 *

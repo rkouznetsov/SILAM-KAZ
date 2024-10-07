@@ -6,14 +6,20 @@
 
 # Enjoy!
 
+workdir=/home/bik/silam-inanwp
 
-basedate=${1:-"2 days ago"} 
+cd $workdir
+
+. environment
+
+basedate=${1:-"2 day ago"} 
 basedate=`date -u -d "$basedate" +%Y%m%d`
 
 set -u 
-ncks=ncks
+ncks=$HOME/singularity/nco/ncks
+#ncks=/usr/bin/ncks
 
-BND_PATH=${BOUNDARY_DIR}58
+BND_PATH=${BOUNDARY_DIR}
 
 targetdir=$BND_PATH/`date -u -d "$basedate" +%Y%m%d00`
 mkdir -p $targetdir
@@ -53,7 +59,7 @@ echo $varlist
 bbox="-d lon,${lonrange} -d lat,${latrange} -d hybrid,0,18 -d hybrid_half,0,19"
 
 
-maxjobs=8
+maxjobs=4
 
 # make dates
 run=`date -u -d $basedate +"%FT00:00:00Z"`
@@ -62,7 +68,7 @@ run=`date -u -d $basedate +"%FT00:00:00Z"`
 
 for try  in `seq 0 10`; do
    missfiles=""
-   for hr in `seq 48 3 168` ; do
+   for hr in `seq 3 3 168` ; do
    #for hr in `seq 48 52` ; do
         outf=`date -u -d"$basedate + $hr hours" +"SILAM58${suitename}${run}_%Y%m%d%H.nc"`
 
@@ -81,7 +87,7 @@ for try  in `seq 0 10`; do
         compresscmd="-h --mk_rec_dmn time -4 -L5  --cnk_dmn hybrid,1 --cnk_map=rd1 --ppc vmr_.*=2"
 
         #   get -> fix attribures -> compress
-        (ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outf}.tmp && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
+        ($ncks -O $bbox -d time,$step -v ${varlist} "$URL" ${outf}.tmp && ncatted -h $attcmd ${outf}.tmp && $ncks $compresscmd ${outf}.tmp $outf && rm ${outf}.tmp && echo  $outf done!) & 
         
         echo  `jobs | wc -l`  $maxjobs 
         while [ `jobs | wc -l` -ge $maxjobs ]; do sleep 1; done
