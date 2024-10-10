@@ -19,13 +19,9 @@ CONTROL=AQ-cb5.control
 
   export nx=1
   export ny=4
-  mkdir -p output/${fcdate}${outsuff}
-#  export OMP_NUM_THREADS=16
-  #/usr/bin/time -v mpirun  -display-map -n 4  --bind-to socket --rank-by core ${silam_binary}mpi  $CONTROL 2>&1 | tee output/${fcdate}${outsuff}/${ymd}.log
-  #/usr/bin/time -v mpirun  -display-map -n 4 ${silam_binary}mpi  $CONTROL 2>&1 | tee output/${fcdate}${outsuff}/${ymd}.log
-  /usr/bin/time -v ${silam_binary}  $CONTROL 2>&1 | tee output/${fcdate}${outsuff}/${ymd}.log
+  runoutdir=${OUTPUT_DIR}/${fcdate}${outsuff}
 
-  #gdb -ex 'break globals::set_error' -ex 'set breakpoint pending on' -ex 'break exit' -ex 'set breakpoint pending off' -ex 'r' --args ${silam_binary}_debug  $CONTROL 
+  mkdir -p ${runoutdir}
+  srun --time=2:00:00 --cpus-per-task=112 ${silam_binary}  $CONTROL 2>&1 | tee ${runoutdir}/${ymd}.log
 
-  #srun --cpus-per-task=$OMP_NUM_THREADS --ntasks-per-node=$taskspernode $silam $CONTROL 2>&1 | tee output/${case}/${case}\${ymd}.log
 

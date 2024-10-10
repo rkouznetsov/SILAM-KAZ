@@ -43,8 +43,8 @@ done
 
 ioff=0 ## Start plotting with first hour
 for d in $dates; do
-  pm_binary=$outputdir/$fcdate${outsuff}/PM_${d}.nc4
-  binary=$outputdir/$fcdate${outsuff}/${d}.nc4
+  pm_binary=$outputdir/$fcdate${outsuff}/PM_${d}.nc
+  binary=$outputdir/$fcdate${outsuff}/${d}.nc
   echo "\"run $pm_script   $analysis_time ${pm_binary}  $picture_dir $ioff $mpdset\"" 
   echo "\"run $apta_script $analysis_time    ${binary}  $picture_dir $ioff $mpdset\"" 
   ioff=`expr $ioff + 1`

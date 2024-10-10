@@ -1,23 +1,18 @@
 #!/bin/bash
 
-#save options
-SAVED_OPTIONS=$(set +o)
-
-#set -x
-
-
+#export dir=/pfss_fs1
 export scriptdir=`pwd`
 
 
-export METEO_DIR=${scriptdir}/meteo
+export METEO_DIR=${scriptdir}/WRF
 export OUTPUT_DIR=${scriptdir}/output
-export BOUNDARY_DIR=${scriptdir}/SILAM-bnd
+export BOUNDARY_DIR=${scriptdir}/bnd58
 
 
-export silam_binary=${scriptdir}/../silam-model/bin/silam_v5_8pub.gnu   # serial run
-export silam_ini=${scriptdir}/../silam-model/ini  
+export silam_binary=${scriptdir}/../singularity/silam/silam_v5_9pub.gnu   # serial run
+export silam_ini=${scriptdir}/silam-model/ini  
 
-if [ -n "${ECF_NAME}" ]; then 
+if [ -n "${ECF_NAME-}" ]; then 
   echo "Running form ecflow"
   export progresscmd="ecflow_client --meter=progress"
   #export MAILTO="rostislav.kouznetsov@fmi.fi,mikhail.sofiev@fmi.fi"
@@ -34,30 +29,23 @@ export outsuff="" ## Can be set non-empty to alter the  output directory
 
 export bbox=
 
-export fcdate=`date -u -d "-3 hours" +%Y%m%d`
+export fcdate=`date -u -d "3 hours" +%Y%m%d`
+#export fcdate='20240520'
 
-export maxhours=48
+export maxhours=72
 
 #Suite-specific setup
-export suitename=AQ-VNM
-export email="hoanghuygm@gmail.com,luanvn@cem.gov.vn"
-export lonrange="99.5,119.5"   ## 
-export latrange="0.5,25.5"
-
-#According to the law, Viet Nam has a boundary from 4°30' to 23°30' north
-#latitude, from 102°00' to 118°00' east longitude.
-
-
+export suitename=AQ-INA
+export email="test-imd"
+export lonrange="94.5,141.5"
+export latrange="-11.5,7.5"
 export bbox="${lonrange},${latrange}" #lo,lo,la,la
-export mpdset="mpd_vnm"
+export mpdset="hires"
 
-export publish=true
+export publish=false
 # Geometry depends on the picture Upper-leftcorner of logo with respect
 # to upper-left corner of a picture 
 export PUTLOGOCMD="composite  -geometry  +110+475  $scriptdir/fmi-logo-60x30a.png"
 # Special logo for aqi and pollen index pictures
 export PUTLOGOCMDINDEX="$PUTLOGOCMD"
 
-# restore options
-set +x
-eval "$SAVED_OPTIONS"

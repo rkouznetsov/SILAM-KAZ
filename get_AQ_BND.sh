@@ -6,17 +6,16 @@
 
 # Enjoy!
 
-workdir=/home/bik/silam-inanwp
+workdir=${scriptdir}
 
 cd $workdir
 
-. environment
-
 basedate=${1:-"2 day ago"} 
-basedate=`date -u -d "$basedate" +%Y%m%d`
+#basedate=`date -u -d "$basedate" +%Y%m%d`
 
 set -u 
-ncks=$HOME/singularity/nco/ncks
+ncks=ncks
+#ncks=$HOME/singularity/nco/ncks
 #ncks=/usr/bin/ncks
 
 BND_PATH=${BOUNDARY_DIR}

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the working directory
-cd /home/bik/silam-inanwp/WRF
+cd ${scriptdir}
 
 # Set date variables for the file naming
 dir=$(date -d "yesterday 12:00" '+%Y-%m-%dT%H:%M:%S')
