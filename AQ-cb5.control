@@ -85,6 +85,9 @@ LIST = EMISSION_PARAMETERS
   emission_source = EULERIAN  emis/sslt/src_dms.ini
   emission_source = EULERIAN  emis/sslt/src_sea_salt_global.ini
   emission_source = EULERIAN emis/dust-simple/src_simple_dust_v3.ini
+  emission_source = EULERIAN ../I4FIRES-FIRMS/FIRMS-SOURCE/MODIS_C6_1_SouthEast_Asia_latest.src
+
+  
 
   cut_area_source_if_outside_meteo_grid = YES
   if_technical_source_dump = NONE
