@@ -11,7 +11,7 @@ workdir=${scriptdir}
 cd $workdir
 
 basedate=${1:-"2 day ago"} 
-#basedate=`date -u -d "$basedate" +%Y%m%d`
+basedate=`date -u -d "$basedate" +%Y%m%d`
 
 set -u 
 ncks=ncks
@@ -36,7 +36,7 @@ urlbase="https://thredds.silam.fmi.fi/thredds/dodsC/silam_glob06_v5_8/runs/$runp
 #urlbase="https://silam.fmi.fi/thredds/dodsC/silam_glob06_v5_8/runs/$runpref"
 
 #List form global v5_7_1 that is pesent in IND
-species="AACD_gas ALD2_gas ALDX_gas AVB0_gas AVB0_m_50 AVB1e0_gas AVB1e0_m_50 AVB1e1_gas AVB1e1_m_50 AVB1e2_gas AVB1e2_m_50 AVB1e3_gas AVB1e3_m_50 AVB1e4_gas AVB1e5_gas AVB1e6_gas BENZENE_gas BVB0_gas BVB0_m_50 BVB1e0_gas BVB1e0_m_50 BVB1e1_gas BVB1e1_m_50 BVB1e2_gas BVB1e2_m_50 BVB1e3_gas BVB1e3_m_50 C2O3_gas C5H8_2_gas C5H8_gas CH3Cl_gas CO_gas CRES_gas CRO_gas CXO3_gas EC_m_50 ETHA_gas ETH_gas ETOH_gas FACD_gas H2O2_gas HCHO_gas HCO3_gas HNO3_gas HO2_gas HONO_gas IOLE_gas ISPD_gas MEO2_gas MEOH_gas MEPX_gas MGLY_gas N2O5_gas NH3_gas NH415SO4_m_20 NH415SO4_m_70 NH4NO3_m_70 NO2_gas NO3_c_m3_0 NO3_gas NO_gas NTR_gas O1D_gas O3_gas OH_gas OLE5_gas OPEN_gas O_gas PACD_gas PANX_gas PAN_gas PAR5_gas PM_m6_0 PNA_gas ROOH_gas ROR5_gas SESQ_gas SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas dust_m1_5 dust_m20 dust_m6_0 dust_m_30 sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50"
+species="AACD_gas ALD2_gas ALDX_gas AVB0_gas AVB0_m_50 AVB1e0_gas AVB1e0_m_50 AVB1e1_gas AVB1e1_m_50 AVB1e2_gas AVB1e2_m_50 AVB1e3_gas AVB1e3_m_50 AVB1e4_gas AVB1e5_gas AVB1e6_gas BENZENE_gas BVB0_gas BVB0_m_50 BVB1e0_gas BVB1e0_m_50 BVB1e1_gas BVB1e1_m_50 BVB1e2_gas BVB1e2_m_50 BVB1e3_gas BVB1e3_m_50 C2O3_gas C5H8_2_gas C5H8_gas CH3Cl_gas CO_gas CRES_gas CRO_gas CXO3_gas EC_m_50 ETHA_gas ETH_gas ETOH_gas FACD_gas H2O2_gas HCHO_gas HCO3_gas HNO3_gas HO2_gas HONO_gas IOLE_gas ISPD_gas MEO2_gas MEOH_gas MEPX_gas MGLY_gas N2O5_gas NH3_gas NH415SO4_m_20 NH415SO4_m_70 NH4NO3_m_70 NO2_gas NO3_c_m3_0 NO3_gas NO_gas NTR_gas O1D_gas O3_gas OH_gas OLE5_gas OPEN_gas O_gas PACD_gas PANX_gas PAN_gas PAR5_gas PM_m6_0 PNA_gas ROOH_gas ROR5_gas SESQ_gas SO2_gas SO4_m_20 SO4_m_70 TO2_gas TOL_gas XO2N_gas XO2_gas XYL_gas dust_m1_5 dust_m20 dust_m6_0 dust_m_30 sslt_m20 sslt_m3_0 sslt_m9_0 sslt_m_05 sslt_m_50 PM_FRP_m_17"
 
 
 
@@ -61,11 +61,11 @@ bbox="-d lon,${lonrange} -d lat,${latrange} -d hybrid,0,18 -d hybrid_half,0,19"
 maxjobs=4
 
 # make dates
-run=`date -u -d $basedate +"%FT00:00:00Z"`
+run=`date -u -d "$basedate" +"%FT00:00:00Z"`
 
 
 
-for try  in `seq 0 10`; do
+for try  in `seq 0 1`; do
    missfiles=""
    for hr in `seq 3 3 168` ; do
    #for hr in `seq 48 52` ; do
